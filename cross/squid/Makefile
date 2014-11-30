@@ -1,8 +1,8 @@
 PKG_NAME = squid
-PKG_VERS = 3.1.22
+PKG_VERS = 3.4.9
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.1/
+PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.4/
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = native/$(PKG_NAME)
@@ -13,7 +13,7 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 
-CONFIGURE_ARGS  = $(TC_CONFIGURE_ARGS) --prefix=$(INSTALL_PREFIX) --enable-icap-client --disable-strict-error-checking
+CONFIGURE_ARGS  = $(TC_CONFIGURE_ARGS) --prefix=$(INSTALL_PREFIX) --enable-icap-client --disable-strict-error-checking --enable-ssl
 
 HOSTCFGEN_NATIVE = $(WORK_DIR)/../../../native/$(PKG_NAME)/work-native/$(PKG_DIR)/src/cf_gen
 HOSTCFGEN = $(WORK_DIR)/$(PKG_DIR)/src/cf_gen
