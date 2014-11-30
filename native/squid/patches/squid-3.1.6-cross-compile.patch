@@ -1,0 +1,46 @@
+--- ./configure
++++ ./configure
+@@ -22221,12 +22221,10 @@
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the SSL_get_certificate is buggy" >&5
+ $as_echo_n "checking whether the SSL_get_certificate is buggy... " >&6; }
+   if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
++  { $as_echo "$as_me:${as_lineno-$LINENO}: cross-compiler, cannot test, assume no" >&5
++$as_echo "$as_me: cross-compiler, cannot test, assume no" >&2;} 
+ else
+-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
++{  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+ 
+@@ -22263,17 +22261,17 @@
+ fi
+ rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+   conftest.$ac_objext conftest.beam conftest.$ac_ext
++}
+ fi
+ 
+ 
+   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the workaround for SSL_get_certificate works" >&5
+ $as_echo_n "checking whether the workaround for SSL_get_certificate works... " >&6; }
+   if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
++  { $as_echo "$as_me:${as_lineno-$LINENO}: cross-compiler, cannot test, assume no" >&5
++$as_echo "$as_me: cross-compiler, cannot test, assume no" >&2;} 
+ else
++{
+   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -22313,6 +22311,7 @@
+ fi
+ rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+   conftest.$ac_objext conftest.beam conftest.$ac_ext
++}
+ fi
