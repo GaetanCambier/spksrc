@@ -1,6 +1,5 @@
-diff -ur squidGuard-1.5-beta.orig/src/main.c squidGuard-1.5-beta/src/main.c
---- squidGuard-1.5-beta.orig/src/main.c	2013-12-12 11:47:31.000000000 +1300
-+++ squidGuard-1.5-beta/src/main.c	2013-12-12 11:50:38.000000000 +1300
+--- ./src/main.c.old	2013-12-12 11:47:31.000000000 +1300
++++ ./src/main.c	2013-12-12 11:50:38.000000000 +1300
 @@ -185,7 +185,7 @@
  	sgReloadConfig();
        }
@@ -47,9 +46,8 @@ diff -ur squidGuard-1.5-beta.orig/src/main.c squidGuard-1.5-beta/src/main.c
              /* sgLogDebug("DEBUG: %s %s/%s %s %s\n",redirect,squidInfo.src,squidInfo.srcDomain,squidInfo.ident,squidInfo.method);  */
  	    break;
  	  }
-diff -ur squidGuard-1.5-beta.orig/src/main.c.in squidGuard-1.5-beta/src/main.c.in
---- squidGuard-1.5-beta.orig/src/main.c.in	2013-12-12 11:47:31.000000000 +1300
-+++ squidGuard-1.5-beta/src/main.c.in	2013-12-12 11:53:18.000000000 +1300
+--- ./src/main.c.in.old	2013-12-12 11:47:31.000000000 +1300
++++ ./src/main.c.in	2013-12-12 11:53:18.000000000 +1300
 @@ -185,7 +185,7 @@
  	sgReloadConfig();
        }
@@ -100,9 +98,8 @@ diff -ur squidGuard-1.5-beta.orig/src/main.c.in squidGuard-1.5-beta/src/main.c.i
              /* sgLogDebug("DEBUG: %s %s/%s %s %s\n",redirect,squidInfo.src,squidInfo.srcDomain,squidInfo.ident,squidInfo.method);  */
  	    break;
  	  }
-diff -ur squidGuard-1.5-beta.orig/src/sgDiv.c squidGuard-1.5-beta/src/sgDiv.c
---- squidGuard-1.5-beta.orig/src/sgDiv.c	2013-12-12 11:47:31.000000000 +1300
-+++ squidGuard-1.5-beta/src/sgDiv.c	2013-12-12 11:48:36.000000000 +1300
+--- ./src/sgDiv.c.old	2013-12-12 11:47:31.000000000 +1300
++++ ./src/sgDiv.c	2013-12-12 11:48:36.000000000 +1300
 @@ -782,7 +782,7 @@
    }
    sgLogError("ERROR: Going into emergency mode");
@@ -112,9 +109,8 @@ diff -ur squidGuard-1.5-beta.orig/src/sgDiv.c squidGuard-1.5-beta/src/sgDiv.c
      fflush(stdout);
    }
    sgLogError("ERROR: Ending emergency mode, stdin empty");
-diff -ur squidGuard-1.5-beta.orig/src/sgDiv.c.in squidGuard-1.5-beta/src/sgDiv.c.in
---- squidGuard-1.5-beta.orig/src/sgDiv.c.in	2013-12-12 11:47:31.000000000 +1300
-+++ squidGuard-1.5-beta/src/sgDiv.c.in	2013-12-12 11:48:36.000000000 +1300
+--- ./src/sgDiv.c.in.old	2013-12-12 11:47:31.000000000 +1300
++++ ./src/sgDiv.c.in	2013-12-12 11:48:36.000000000 +1300
 @@ -782,7 +782,7 @@
    }
    sgLogError("ERROR: Going into emergency mode");
