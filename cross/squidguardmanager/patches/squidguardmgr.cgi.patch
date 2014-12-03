@@ -55,9 +55,9 @@
 +		);
 +$LANG = getpreferedlang(@supported);
 +
- $VERSION     = '1.11',
+ $VERSION     = '1.13',
  $AUTHOR      = 'Gilles DAROLD <gilles AT darold DOT net>';
- $COPYRIGHT   = 'Copyright &copy; 2010-2012 Gilles DAROLD, all rights reserved';
+ $COPYRIGHT   = 'Copyright &copy; 2010-2013 Gilles DAROLD, all rights reserved';
 @@ -37,7 +88,6 @@
  our $BLDESC     = 'description.dat';
  our $CONF_FILE  = '/usr/local/squidGuard/squidguard.conf';
