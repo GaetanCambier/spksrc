@@ -49,6 +49,10 @@ postinst ()
     # Install webman
     ln -s ${WWW_DIR} ${WEBMAN_DIR}/${PACKAGE}
     ln -sf ${INSTALL_DIR}/etc/squidguardmgr.conf ${WEBMAN_DIR}/${PACKAGE}/
+
+    # For squidclamav redirect
+    ln -sf ${INSTALL_DIR}/libexec/squidclamav/clwarn.cgi ${WEBMAN_DIR}/${PACKAGE}/clwarn.cgi
+
       
     # Init crontab : update squidguard DB each day at 1 a.m
     grep ${PACKAGE} /etc/crontab
