@@ -6,7 +6,9 @@ BETA = 1
 
 DEPENDS = cross/openssl cross/zlib cross/c_icap cross/busybox cross/unrar cross/squidclamav cross/berkeleydb cross/squidguard cross/squid cross/squidguardmanager
 
-SPK_DEPENDS = "AntiVirus>1.2"
+SPK_DEPENDS = "AntiVirus>1.2:Perl"
+INSTALL_DEP_SERVICES = "apache-web"
+START_DEP_SERVICES = "apache-web"
 
 MAINTAINER = SynoCommunity
 DESCRIPTION = SquidGuard is a URL redirector used to use blacklists with the proxysoftware Squid. This package also includes SquidClamav for viruses protection and SquidGuard Manager.
@@ -43,9 +45,11 @@ xz-compress:
 	install -m 755 -d $(STAGING_DIR)/var/cache
 	install -m 755 -d $(STAGING_DIR)/var/db
 	install -m 755 src/update_db.sh $(STAGING_DIR)/bin/
+	install -m 750 src/logrotate.sh $(STAGING_DIR)/bin/
 	install -m 755 src/etc/* $(STAGING_DIR)/etc/
 	install -m 644 src/app/config $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 755 src/app/squidGuard.cgi $(STAGING_DIR)/share/www/squidguardmgr/
+	install -m 644 src/app/squidGuard.gif $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/babel.* $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/synocommunity.png $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/blocked.gif $(STAGING_DIR)/share/www/squidguardmgr/

@@ -1,7 +1,7 @@
 error cf_gen :
 
 make cf_gen for native build :
-untar squid package en cd intio squid directory
+untar squid package en cd into squid directory
 ./configure
 make -C lib
 make -C src
