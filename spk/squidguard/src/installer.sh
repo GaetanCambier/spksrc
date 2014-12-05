@@ -14,7 +14,6 @@ ETC_DIR="${INSTALL_DIR}/etc/"
 WWW_DIR="/var/packages/${PACKAGE}/target/share/www/squidguardmgr"
 WEBMAN_DIR="/usr/syno/synoman/webman/3rdparty"
 SQUID_WRAPPER="${WWW_DIR}/squid_wrapper"
-SSS="/var/packages/${PACKAGE}/scripts/start-stop-status"
 SERVICETOOL="/usr/syno/bin/servicetool"
 FWPORTS="/var/packages/${PACKAGE}/scripts/${PACKAGE}.sc"
 TMP_DIR="${SYNOPKG_PKGDEST}/../../@tmp"
@@ -136,8 +135,6 @@ postupgrade ()
     rm -fr ${INSTALL_DIR}/var
     mv ${TMP_DIR}/${PACKAGE}/var ${INSTALL_DIR}/
     rm -fr ${TMP_DIR}/${PACKAGE}
-    ${SSS} stop > /dev/null
-    ${SSS} start > /dev/null
     exit 0
 }
 
