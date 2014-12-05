@@ -48,6 +48,9 @@ postinst ()
     # Init squid cache directory
     su - ${RUNAS} -c "${SQUID} -z -f ${CFG_FILE}"
 
+    # Init SSLBump cache directory
+    su - ${RUNAS} -c "${INSTALL_DIR}/libexec/ssl_crtd -c -s ${INSTALL_DIR}/var/ssl_db"
+
     # Install webman
     ln -s ${WWW_DIR} ${WEBMAN_DIR}/${PACKAGE}
     ln -sf ${INSTALL_DIR}/etc/squidguardmgr.conf ${WEBMAN_DIR}/${PACKAGE}/
