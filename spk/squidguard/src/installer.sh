@@ -41,9 +41,6 @@ postinst ()
     # Correct the files ownership
     chown -R ${RUNAS}:users ${SYNOPKG_PKGDEST}
 
-    # need when new DB files are created via web interface (avoid permission error because squidGuard is launch with squid user)
-    chmod u+s ${INSTALL_DIR}/bin/squidGuard
-
     if [ "${SYNOPKG_PKG_STATUS}" == "UNINSTALL" ]; then
         # Init squid cache directory
         su - ${RUNAS} -c "${SQUID} -z -f ${CFG_FILE}"
