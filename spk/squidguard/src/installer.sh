@@ -44,8 +44,10 @@ postinst ()
     # need when new DB files are created via web interface (avoid permission error because squidGuard is launch with squid user)
     chmod u+s ${INSTALL_DIR}/bin/squidGuard
 
-    # Init squid cache directory
-    su - ${RUNAS} -c "${SQUID} -z -f ${CFG_FILE}"
+    if [ "${SYNOPKG_PKG_STATUS}" == "UNINSTALL" ]; then
+        # Init squid cache directory
+        su - ${RUNAS} -c "${SQUID} -z -f ${CFG_FILE}"
+    fi
 
     # Init SSLBump cache directory
     su - ${RUNAS} -c "${INSTALL_DIR}/libexec/ssl_crtd -c -s ${INSTALL_DIR}/var/ssl_db"
