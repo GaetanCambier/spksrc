@@ -55,21 +55,21 @@
 +		);
 +$LANG = getpreferedlang(@supported);
 +
- $VERSION     = '1.13',
+ $VERSION     = '1.14',
  $AUTHOR      = 'Gilles DAROLD <gilles AT darold DOT net>';
- $COPYRIGHT   = 'Copyright &copy; 2010-2013 Gilles DAROLD, all rights reserved';
+ $COPYRIGHT   = 'Copyright &copy; 2010-2015 Gilles DAROLD, all rights reserved';
 @@ -24,8 +75,8 @@
  my $SC_PROGRAM  = 'SquidClamav Manager';
  
  # Default SquidGuard installation path
 -my $DBHOME = "/var/lib/squidguard/db";
--my $LOGDIR = "/var/log/squid";
+-my $LOGDIR = "/var/log/squidguard";
 +my $DBHOME = "/usr/local/squidguard/var/db";
 +my $LOGDIR = "/usr/local/squidguard/var/logs";
  
  # Variables that can be overidden into the squidguardmgr.conf file
  our $DIFF       = '/usr/bin/diff';
-@@ -160,7 +211,7 @@
+@@ -161,7 +211,7 @@
  	if ($VIEW eq 'squid') {
  		if ($SQUID_WRAPPER) {
  			print "Running: $SQUID_WRAPPER ... \n";
@@ -78,7 +78,7 @@
  			&error($ERROR) if ($ERROR);
  			print "Ok." if (!$ERROR);
  		}
-@@ -275,7 +326,7 @@
+@@ -276,7 +326,7 @@
  
  if ($ACTION eq 'squid') {
  	if ($SQUID_WRAPPER) {
