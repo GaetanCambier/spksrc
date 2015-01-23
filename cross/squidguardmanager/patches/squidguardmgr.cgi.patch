@@ -69,6 +69,14 @@
  
  # Variables that can be overidden into the squidguardmgr.conf file
  our $DIFF       = '/usr/bin/diff';
+@@ -37,7 +88,6 @@
+ our $BLDESC     = 'description.dat';
+ our $CONF_FILE  = '/usr/local/squidGuard/squidguard.conf';
+ our $LANGDIR    = 'lang';
+-our $LANG       = 'en_US';
+ our $IMG_DIR    = 'images';
+ our $CSS_FILE   = 'squidguardmgr.css';
+ our $JS_FILE    = 'squidguardmgr.js';
 @@ -161,7 +211,7 @@
  	if ($VIEW eq 'squid') {
  		if ($SQUID_WRAPPER) {
