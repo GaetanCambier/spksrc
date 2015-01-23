@@ -2,7 +2,7 @@ SPK_NAME = squidguard
 SPK_VERS = 1.5
 SPK_REV = 1
 SPK_ICON = src/squidguard.png
-BETA = 1
+BETA = 2
 
 DEPENDS = cross/openssl cross/zlib cross/c_icap cross/busybox cross/unrar cross/squidclamav cross/berkeleydb cross/squidguard cross/squid cross/squidguardmanager
 
