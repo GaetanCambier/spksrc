@@ -1,9 +1,9 @@
---- etc/Makefile.in.orig	2012-10-04 11:58:03.000000000 +0200
-+++ etc/Makefile.in	2012-10-04 12:02:05.000000000 +0200
-@@ -168,6 +168,7 @@
- top_srcdir = @top_srcdir@
- EXTRA_DIST = squidclamav.conf
+--- etc/Makefile.in.orig	2015-01-23 18:45:01.742809289 +0100
++++ etc/Makefile.in	2015-01-23 18:45:43.394817223 +0100
+@@ -177,6 +177,7 @@
  CFGINST = @CFGDIR@
+ TMPLS = templates/en/MALWARE_FOUND
+ EXTRA_DIST = squidclamav.conf $(TMPLS)
 +DESTDIR = $(prefix)
  all: all-am
  
