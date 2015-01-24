@@ -12,7 +12,7 @@ COMMENT  = Squid is a fully-featured HTTP/1.0 proxy which is almost HTTP/1.1 com
 LICENSE  = 
 
 GNU_CONFIGURE = 1
-CONFIGURE_ARGS  = $(TC_CONFIGURE_ARGS) --prefix=$(INSTALL_PREFIX) --enable-icap-client --disable-strict-error-checking --enable-ssl --enable-ssl-crtd --disable-external-acl-helpers
+CONFIGURE_ARGS  = --prefix=$(INSTALL_PREFIX) --enable-icap-client --disable-strict-error-checking --enable-ssl --enable-ssl-crtd --disable-external-acl-helpers
 
 COMPILE_TARGET = myCompile
 INSTALL_TARGET = noop

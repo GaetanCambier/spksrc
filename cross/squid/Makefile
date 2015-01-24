@@ -13,7 +13,7 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 
-CONFIGURE_ARGS  = $(TC_CONFIGURE_ARGS) --prefix=$(INSTALL_PREFIX) --enable-icap-client --disable-strict-error-checking --enable-ssl --enable-ssl-crtd --disable-external-acl-helpers
+CONFIGURE_ARGS  =  --prefix=$(INSTALL_PREFIX) --enable-icap-client --disable-strict-error-checking --enable-ssl --enable-ssl-crtd --disable-external-acl-helpers --disable-arch-native
 
 HOSTCFGEN_NATIVE = $(WORK_DIR)/../../../native/$(PKG_NAME)/work-native/$(PKG_DIR)/src/cf_gen
 HOSTCFGEN = $(WORK_DIR)/$(PKG_DIR)/src/cf_gen
@@ -24,6 +24,7 @@ PRE_COMPILE_TARGET = myPreCompile
 
 include ../../mk/spksrc.cross-cc.mk
 
+.PHONY: myPreCompile
 myPreCompile:
 	cp $(HOSTCFGEN_NATIVE) $(HOSTCFGEN)
 
