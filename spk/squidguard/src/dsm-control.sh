@@ -34,13 +34,13 @@ stop_daemon ()
 {
     # stop squid
     su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE} -k shutdown"
-    #wait_for_status 1 20
+    wait_for_status 1 20
     
     # stop c-icap
     kill `cat ${CICAP_PID}`
 
     # stop clamd
-    kill `cat ${CLAMD_PID}`
+    kill -9 `cat ${CLAMD_PID}`
 }
 
 daemon_status ()
