@@ -41,13 +41,13 @@ postinst ()
     # Correct the files ownership
     chown -R ${RUNAS}:users ${SYNOPKG_PKGDEST}
 
-    if [ "${SYNOPKG_PKG_STATUS}" == "UNINSTALL" ]; then
+    if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
         # Init squid cache directory
         su - ${RUNAS} -c "${SQUID} -z -f ${CFG_FILE}"
     fi
 
     # Init SSLBump cache directory
-    su - ${RUNAS} -c "${INSTALL_DIR}/libexec/ssl_crtd -c -s ${INSTALL_DIR}/var/ssl_db"
+    su - ${RUNAS} -c "${INSTALL_DIR}/libexec/ssl_crtd -c -s ${INSTALL_DIR}/var/ssl_db" >> /dev/null
 
     # Install webman
     ln -s ${WWW_DIR} ${WEBMAN_DIR}/${PACKAGE}
@@ -92,7 +92,7 @@ postuninst ()
     # Remove link
     rm -f ${INSTALL_DIR}
     rm -Rf ${WEBMAN_DIR}/${PACKAGE}
-    sed "/${PACKAGE}/d" /etc/crontab
+    sed "/${PACKAGE}/d" /etc/crontab >> /dev/null
     /usr/syno/etc/rc.d/S04crond.sh stop >> /dev/null
     sleep 1
     /usr/syno/etc/rc.d/S04crond.sh start >> /dev/null
