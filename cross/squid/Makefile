@@ -27,4 +27,4 @@ include ../../mk/spksrc.cross-cc.mk
 .PHONY: myPreCompile
 myPreCompile:
 	cp $(HOSTCFGEN_NATIVE) $(HOSTCFGEN)
-
+	sleep 1
