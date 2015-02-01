@@ -4,7 +4,7 @@ SPK_REV = 1
 SPK_ICON = src/squidguard.png
 BETA = 2
 
-DEPENDS = cross/openssl cross/zlib cross/c_icap cross/busybox cross/unrar cross/squidclamav cross/berkeleydb cross/squidguard cross/squid cross/squidguardmanager
+DEPENDS = cross/c_icap cross/busybox cross/unrar cross/squidclamav cross/berkeleydb cross/squidguard cross/squid cross/squidguardmanager
 
 SPK_DEPENDS = "AntiVirus>1.2:Perl"
 INSTALL_DEP_SERVICES = "apache-web"
