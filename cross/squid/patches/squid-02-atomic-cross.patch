@@ -1,6 +1,6 @@
 --- ./configure.ac.old	2013-09-13 09:15:32.473365627 -0300
 +++ ./configure.ac	2013-09-13 13:27:06.829711487 -0300
-@@ -392,7 +392,7 @@
+@@ -415,7 +415,7 @@
  dnl Check for atomic operations support in the compiler
  dnl
  AC_MSG_CHECKING([for GNU atomic operations support])
