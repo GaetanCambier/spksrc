@@ -5,7 +5,7 @@ PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.4/
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-DEPENDS = cross/Linux-PAM cross/openssl native/$(PKG_NAME)
+DEPENDS = cross/Linux-PAM cross/openssl cross/openldap native/$(PKG_NAME)
 
 HOMEPAGE = http://www.squid-cache.org/
 COMMENT  = Squid is a fully-featured HTTP/1.0 proxy which is almost HTTP/1.1 compliant.
