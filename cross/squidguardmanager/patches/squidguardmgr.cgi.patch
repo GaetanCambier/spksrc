@@ -22,7 +22,7 @@
 +  }
 +}
 +
-+if ( `synoldapclient --get-user $user | grep administrators@` ){
++if ( `synoldapclient --get-user $user | grep -v "\[" | grep administrators@` ){
 +        $admin = 1;
 +}
 +
