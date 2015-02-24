@@ -1,6 +1,6 @@
 --- cgi-bin/squidguardmgr.cgi.orig	2014-12-05 19:10:41.477258783 +0100
 +++ cgi-bin/squidguardmgr.cgi	2014-12-05 19:35:06.081331023 +0100
-@@ -14,6 +14,57 @@
+@@ -14,6 +14,62 @@
  
  use strict qw{vars subs};
  
@@ -21,6 +21,11 @@
 +	$admin = 1 if (grep {$_ eq $user} @users);
 +  }
 +}
++
++if ( `synoldapclient --get-user $user | grep administrators@` ){
++        $admin = 1;
++}
++
 +# if not admin or no user at all...no authentication...so, bye-bye
 +if ($admin == 0) {
 +	print "Content-type: text/html\n\n";
