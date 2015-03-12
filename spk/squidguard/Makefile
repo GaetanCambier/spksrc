@@ -4,7 +4,7 @@ SPK_REV = $(shell date +%Y%m%d)
 SPK_ICON = src/squidguard.png
 BETA = 1
 
-DEPENDS = cross/c_icap cross/busybox cross/unrar cross/squidclamav cross/berkeleydb cross/squidguard cross/squid cross/squidguardmanager
+DEPENDS = cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
 
 SPK_DEPENDS = "AntiVirus>1.2:Perl"
 INSTALL_DEP_SERVICES = "apache-web"
