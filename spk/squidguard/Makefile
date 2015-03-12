@@ -1,5 +1,5 @@
 SPK_NAME = squidguard
-SPK_VERS = 1.5.2
+SPK_VERS = 1.5.3
 SPK_REV = $(shell date +%Y%m%d)
 SPK_ICON = src/squidguard.png
 BETA = 1
