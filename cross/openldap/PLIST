@@ -8,14 +8,8 @@ bin:bin/ldappasswd
 bin:bin/ldapsearch
 bin:bin/ldapurl
 bin:bin/ldapwhoami
-etc:etc/openldap/DB_CONFIG.example
 etc:etc/openldap/ldap.conf
 etc:etc/openldap/ldap.conf.default
-etc:etc/openldap/slapd.conf
-etc:etc/openldap/slapd.conf.default
-etc:etc/openldap/slapd.ldif
-etc:etc/openldap/slapd.ldif.default
-bin:libexec/slapd
 lnk:lib/liblber-2.4.so.2
 lib:lib/liblber-2.4.so.2.10.3
 lib:lib/liblber.a
@@ -31,12 +25,3 @@ lib:lib/libldap_r.a
 rsc:lib/libldap_r.la
 lib:lib/libldap_r.so
 lib:lib/libldap.so
-bin:sbin/slapacl
-bin:sbin/slapadd
-bin:sbin/slapauth
-bin:sbin/slapcat
-bin:sbin/slapdn
-bin:sbin/slapindex
-bin:sbin/slappasswd
-bin:sbin/slapschema
-bin:sbin/slaptest
