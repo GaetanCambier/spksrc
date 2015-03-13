@@ -23,10 +23,10 @@ CONFIGURE_ARGS  = --with-db=$(INSTALL_DIR)/$(INSTALL_PREFIX) --exec-prefix=$(INS
 .PHONY: myInstall
 myInstall:
 	@$(RUN) install -m 755 -d $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db
-#	@$(RUN) wget $(DB_FILE) -O $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists.tar.gz
-#	@$(RUN) tar xvzf $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists.tar.gz -C $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db
-#	@$(RUN) cp -R $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists/* $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/
-#	@$(RUN) rm -Rf $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists*
+	@$(RUN) wget $(DB_FILE) -O $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists.tar.gz
+	@$(RUN) tar xvzf $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists.tar.gz -C $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db
+	@$(RUN) cp -R $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists/* $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/
+	@$(RUN) rm -Rf $(INSTALL_DIR)/$(INSTALL_PREFIX)/var/db/blacklists*
 	@$(RUN) install -m 755 -d $(INSTALL_DIR)/$(INSTALL_PREFIX)/share/www/squidguardmgr/
 
 
