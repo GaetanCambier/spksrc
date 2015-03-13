@@ -172,7 +172,7 @@ rsc:var/db/tricheur/urls
 rsc:var/db/tricheur/usage
 rsc:var/db/verisign/domains
 rsc:var/db/verisign/usage
-rsc:var/db/violence
+lnk:var/db/violence
 rsc:var/db/warez/domains
 rsc:var/db/warez/expressions
 rsc:var/db/warez/urls
