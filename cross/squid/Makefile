@@ -32,6 +32,5 @@ myPreConfigure:
 	cp $(WORK_DIR)/install/$(INSTALL_PREFIX)/include/_pam_types.h $(WORK_DIR)/install/$(INSTALL_PREFIX)/include/security/
 	cp $(WORK_DIR)/install/$(INSTALL_PREFIX)/include/_pam_compat.h $(WORK_DIR)/install/$(INSTALL_PREFIX)/include/security/
 
-.PHONY: myPreCompile
 myPreCompile:
 	cp $(HOSTCFGEN_NATIVE) $(HOSTCFGEN)
