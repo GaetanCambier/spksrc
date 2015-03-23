@@ -134,6 +134,14 @@ postupgrade ()
     rm -fr ${INSTALL_DIR}/var
     mv ${TMP_DIR}/${PACKAGE}/var ${INSTALL_DIR}/
     rm -fr ${TMP_DIR}/${PACKAGE}
+
+    # check squid.conf and restore default file is error
+    su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE} -k parse &> /dev/null"
+    if [ $? -ne 0 ]; then
+        mv ${CFG_FILE} ${CFG_FILE}.bad
+        cp ${CFG_FILE}.default ${CFG_FILE}
+    fi
+
     exit 0
 }
 
