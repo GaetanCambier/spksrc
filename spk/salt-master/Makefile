@@ -40,3 +40,4 @@ salt-master_extra_install:
 	install -m 755 -d $(STAGING_DIR)/share/extensions
 	install -m 755 -d $(STAGING_DIR)/share/extensions/auth
 	install -m 644 src/synology.py $(STAGING_DIR)/share/extensions/auth/synology.py
+
