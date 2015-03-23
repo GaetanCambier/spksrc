@@ -135,7 +135,7 @@ postupgrade ()
     mv ${TMP_DIR}/${PACKAGE}/var ${INSTALL_DIR}/
     rm -fr ${TMP_DIR}/${PACKAGE}
 
-    # check squid.conf and restore default file is error
+    # check squid.conf and restore default file if parse error
     su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE} -k parse &> /dev/null"
     if [ $? -ne 0 ]; then
         mv ${CFG_FILE} ${CFG_FILE}.bad
