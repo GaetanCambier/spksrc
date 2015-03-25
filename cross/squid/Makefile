@@ -13,7 +13,7 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 
-CONFIGURE_ARGS  = --enable-icap-client --disable-strict-error-checking --enable-ssl --enable-ssl-crtd --disable-arch-native --enable-external-acl-helpers="no"
+CONFIGURE_ARGS  = --enable-icap-client --enable-ssl --enable-ssl-crtd --disable-arch-native --disable-external-acl-helpers
 
 HOSTCFGEN_NATIVE = $(WORK_DIR)/../../../native/$(PKG_NAME)/work-native/$(PKG_DIR)/src/cf_gen
 HOSTCFGEN = $(WORK_DIR)/$(PKG_DIR)/cf_gen
