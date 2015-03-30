@@ -319,6 +319,9 @@ if ($targetgroup eq "in-addr") {
    showinaddr($targetgroup,$protocol,$address,$port,$path);
 }
 
+$url =~ s/</&lt;/g ;
+$url =~ s/>/&gt;/g ;
+
 status("403 Forbidden");
 expires(0);
 print "Content-type: text/html\n\n";
@@ -377,6 +380,7 @@ if ($targetgroup eq "in-addr") {
    print "$Babel{msgwebmaster}\n";
 }
 print "<br><br>\n";
+print "$Babel{msgproxymaster} <A HREF=mailto:$proxymaster>$proxymaster</A>.<br>\n";
 print "$Babel{msgrefresh}\n";
 
 print "</td></tr></table>\n";
