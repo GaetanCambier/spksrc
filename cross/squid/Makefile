@@ -1,5 +1,5 @@
 PKG_NAME = squid
-PKG_VERS = 3.4.12
+PKG_VERS = 3.5.2
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.4/
@@ -13,7 +13,7 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 
-CONFIGURE_ARGS  = --enable-icap-client --enable-ssl --enable-ssl-crtd --disable-arch-native --disable-external-acl-helpers
+CONFIGURE_ARGS  = --with-openssl --enable-ssl-crtd --disable-arch-native --disable-external-acl-helpers
 
 HOSTCFGEN_NATIVE = $(WORK_DIR)/../../../native/$(PKG_NAME)/work-native/$(PKG_DIR)/src/cf_gen
 HOSTCFGEN = $(WORK_DIR)/$(PKG_DIR)/cf_gen
