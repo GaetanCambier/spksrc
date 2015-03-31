@@ -1,6 +1,6 @@
 --- ./configure.old
 +++ ./configure
-@@ -22221,12 +22221,10 @@
+@@ -22933,12 +22933,10 @@
    { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the SSL_get_certificate is buggy" >&5
  $as_echo_n "checking whether the SSL_get_certificate is buggy... " >&6; }
    if test "$cross_compiling" = yes; then :
@@ -16,7 +16,7 @@
  /* end confdefs.h.  */
  
  
-@@ -22263,17 +22261,17 @@
+@@ -22975,17 +22973,17 @@
  fi
  rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
    conftest.$ac_objext conftest.beam conftest.$ac_ext
@@ -38,7 +38,7 @@
    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
  /* end confdefs.h.  */
  
-@@ -22313,6 +22311,7 @@
+@@ -23025,6 +23023,7 @@
  fi
  rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
    conftest.$ac_objext conftest.beam conftest.$ac_ext
