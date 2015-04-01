@@ -12,6 +12,7 @@ rsc:libexec/basic_pop3_auth
 bin:libexec/basic_radius_auth
 bin:libexec/basic_smb_auth
 rsc:libexec/basic_smb_auth.sh
+rsc:libexec/basic_smb_lm_auth
 rsc:libexec/cachemgr.cgi
 rsc:libexec/cert_valid.pl
 bin:libexec/digest_file_auth

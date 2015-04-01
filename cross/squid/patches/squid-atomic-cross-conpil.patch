@@ -1,6 +1,30 @@
---- ./configure.old
-+++ ./configure
-@@ -22933,12 +22933,10 @@
+--- configure.orig	2015-03-28 12:00:06.000000000 +0100
++++ configure	2015-04-01 21:37:14.881857498 +0200
+@@ -20129,12 +20129,10 @@
+ else
+ 
+ if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
++  { $as_echo "$as_me:${as_lineno-$LINENO}: cross-compiler, cannot test, assume no" >&5
++$as_echo "$as_me: cross-compiler, cannot test, assume no" >&2;}
+ else
+-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
++{  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+ #include <cstdint>
+@@ -20179,6 +20178,7 @@
+ fi
+ rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+   conftest.$ac_objext conftest.beam conftest.$ac_ext
++}
+ fi
+ 
+ 
+@@ -22966,12 +22966,10 @@
    { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether the SSL_get_certificate is buggy" >&5
  $as_echo_n "checking whether the SSL_get_certificate is buggy... " >&6; }
    if test "$cross_compiling" = yes; then :
@@ -16,7 +40,7 @@
  /* end confdefs.h.  */
  
  
-@@ -22975,17 +22973,17 @@
+@@ -23008,17 +23006,17 @@
  fi
  rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
    conftest.$ac_objext conftest.beam conftest.$ac_ext
@@ -38,10 +62,11 @@
    cat confdefs.h - <<_ACEOF >conftest.$ac_ext
  /* end confdefs.h.  */
  
-@@ -23025,6 +23023,7 @@
+@@ -23058,6 +23056,7 @@
  fi
  rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
    conftest.$ac_objext conftest.beam conftest.$ac_ext
 +}
  fi
+ 
  
