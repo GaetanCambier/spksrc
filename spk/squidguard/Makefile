@@ -10,11 +10,13 @@ SPK_DEPENDS = "AntiVirus>1.2:Perl"
 INSTALL_DEP_SERVICES = "apache-web"
 START_DEP_SERVICES = "apache-web"
 
-MAINTAINER = SynoCommunity
+MAINTAINER = Cambier Gaetan
 DESCRIPTION = SquidGuard is a URL redirector used to use blacklists with the proxysoftware Squid. This package also includes SquidClamav for viruses protection and SquidGuard Manager.
 DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de filtrer les accès selon une liste noire. Ce paquet contient également SquidClamav pour une protection antivirus et SquidGuard Manager.
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
+CHANGELOG="1. Update to Squid 3.5.3<br>2. Update unrar to version 5.2.7<br>3. Fixes a XSS vulnerability in the blocking script squidGuard.cgi<br>4. Fixe multiple minor bugs<br>"
+
 
 HOMEPAGE   = http://www.squidguard.org/
 LICENSE    = GNU PL - Copyright © 1990,2007 Oracle.  All rights reserved for berkeley db library. See LICENSE file.
