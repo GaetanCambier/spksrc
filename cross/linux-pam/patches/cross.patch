@@ -1,0 +1,28 @@
+--- configure.in.orig	2015-04-04 15:29:23.070160967 +0200
++++ configure.in	2015-04-04 15:30:20.188563390 +0200
+@@ -150,6 +150,15 @@
+ fi
+ AC_SUBST(BUILD_CFLAGS)
+ 
++if test "x${BUILD_CPPFLAGS+set}" != "xset" ; then
++  if test "x$cross_compiling" = "xyes" ; then
++    BUILD_CPPFLAGS=
++  else
++    BUILD_CPPFLAGS=${CPPFLAGS}
++  fi
++fi
++AC_SUBST(BUILD_CPPFLAGS)
++
+ if test "x${BUILD_LDFLAGS+set}" != "xset" ; then
+   if test "x$cross_compiling" = "xyes" ; then
+     BUILD_LDFLAGS=
+--- doc/specs/Makefile.am.orig	2015-04-04 15:33:56.139753330 +0200
++++ doc/specs/Makefile.am	2015-04-04 15:34:39.621270614 +0200
+@@ -13,6 +13,7 @@
+ 
+ CC = @CC_FOR_BUILD@
+ CFLAGS = @BUILD_CFLAGS@
++CPPFLAGS = @BUILD_CPPFLAGS@
+ LDFLAGS = @BUILD_LDFLAGS@
+ 
+ BUILT_SOURCES = parse_y.h
