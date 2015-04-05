@@ -1,0 +1,11 @@
+--- configure.orig	2015-04-05 13:51:09.243634902 +0200
++++ configure	2015-04-05 13:51:22.460050290 +0200
+@@ -20192,7 +20192,7 @@
+ esac
+ 
+ cat >>confdefs.h <<_ACEOF
+-#define HAVE_ATOMIC_OPS $squid_tmp_define
++#define HAVE_ATOMIC_OPS 0
+ _ACEOF
+ 
+ unset squid_tmp_define
