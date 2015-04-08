@@ -70,14 +70,14 @@ $(WORK_DIR)/INFO:
 	   ) \
 	) | sed 's|"\s|"\n|' >> $@
 	@echo arch=\"$(SPK_ARCH)\" >> $@
-	@echo distributor=\"SynoCommunity\" >> $@
-	@echo distributor_url=\"http://synocommunity.com\" >> $@
-ifeq ($(strip $(MAINTAINER)),SynoCommunity)
-	@echo maintainer=\"SynoCommunity\" >> $@
-	@echo maintainer_url=\"http://synocommunity.com\" >> $@
+	@echo distributor=\"Cambier.org\" >> $@
+	@echo distributor_url=\"http://www.cambier.org\" >> $@
+ifeq ($(strip $(MAINTAINER)),Cambier.org)
+	@echo maintainer=\"Cambier.org\" >> $@
+	@echo maintainer_url=\"http://www.cambier.org\" >> $@
 else
-	@echo maintainer=\"SynoCommunity/$(MAINTAINER)\" >> $@
-	@echo maintainer_url=\"http://synocommunity.com/developers/$(MAINTAINER)\" >> $@
+	@echo maintainer=\"Cambier.org/$(MAINTAINER)\" >> $@
+	@echo maintainer_url=\"https://github.com/GaetanCambier\" >> $@
 endif
 ifneq ($(strip $(FIRMWARE)),)
 	@echo firmware=\"$(FIRMWARE)\" >> $@
@@ -89,7 +89,7 @@ else
   endif
 endif
 ifneq ($(strip $(BETA)),)
-	@echo report_url=\"https://github.com/SynoCommunity/spksrc/issues\" >> $@
+	@echo report_url=\"https://github.com/GaetanCambier/spksrc/issues\" >> $@
 endif
 ifneq ($(strip $(HELPURL)),)
 	@echo helpurl=\"$(HELPURL)\" >> $@
