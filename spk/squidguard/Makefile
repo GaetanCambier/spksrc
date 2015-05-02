@@ -1,8 +1,7 @@
 SPK_NAME = squidguard
-SPK_VERS = 1.5.4
-SPK_REV = $(shell date +%Y%m%d)
+SPK_VERS = 3.5.4
+SPK_REV = 1
 SPK_ICON = src/squidguard.png
-BETA = 1
 
 DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
 
@@ -15,7 +14,11 @@ DESCRIPTION = SquidGuard is a URL redirector used to use blacklists with the pro
 DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de filtrer les accès selon une liste noire. Ce paquet contient également SquidClamav pour une protection antivirus et SquidGuard Manager.
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
-CHANGELOG="1. Update to Squid 3.5.3<br>2. Update unrar to version 5.2.7<br>3. Fixes a XSS vulnerability in the blocking script squidGuard.cgi<br>4. Fixe multiple minor bugs<br>"
+CHANGELOG="\
+1. Update to Squid 3.5.4<br>\
+2. Update to Openssl 1.0.2a<br>\
+3. Update to Linux-PAM 1.2.0<br>\
+4. Fixe multiples minors bugs<br>"
 
 
 HOMEPAGE   = http://www.squidguard.org/
