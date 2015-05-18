@@ -1,0 +1,58 @@
+language: bash
+
+env :
+  global:
+    - CHROOTDIR=$HOME/chroot/trusty32 
+  matrix:  
+     - ARCH_VERSION=88f5281-3.1
+     - ARCH_VERSION=powerpc-4.0
+     - ARCH_VERSION=ppc854x-4.0
+     - ARCH_VERSION=ppc824x-4.2
+     - ARCH_VERSION=88f6281-4.3
+     - ARCH_VERSION=armada370-4.3
+     - ARCH_VERSION=armadaxp-4.3
+     - ARCH_VERSION=bromolow-4.3
+     - ARCH_VERSION=cedarview-4.3
+     - ARCH_VERSION=evansport-4.3
+     - ARCH_VERSION=ppc853x-4.3
+     - ARCH_VERSION=qoriq-4.3
+     - ARCH_VERSION=x86-4.3
+     - ARCH_VERSION=88f6281-5.1
+     - ARCH_VERSION=alpine-5.1
+     - ARCH_VERSION=armada370-5.1
+     - ARCH_VERSION=armada375-5.1
+     - ARCH_VERSION=armadaxp-5.1
+     - ARCH_VERSION=avoton-5.1
+     - ARCH_VERSION=bromolow-5.1
+     - ARCH_VERSION=cedarview-5.1
+     - ARCH_VERSION=comcerto2k-5.1
+     - ARCH_VERSION=evansport-5.1
+     - ARCH_VERSION=ppc853x-5.1
+     - ARCH_VERSION=qoriq-5.1
+     - ARCH_VERSION=x64-5.1
+     - ARCH_VERSION=x86-5.1
+
+before_script:  
+  - sudo apt-get update -qq > /dev/null
+  - sudo apt-get install -qq debootstrap > /dev/null
+  - sudo debootstrap --variant=buildd --arch i386 trusty $CHROOTDIR > /dev/null
+  - sudo chroot $CHROOTDIR locale-gen en_US en_US.UTF-8 > /dev/null
+  - sudo chroot $CHROOTDIR dpkg-reconfigure locales > /dev/null
+  - sudo chroot $CHROOTDIR bash -c "echo 'deb http://archive.ubuntu.com/ubuntu trusty universe' >> /etc/apt/sources.list"
+  - sudo chroot $CHROOTDIR apt-get update -qq > /dev/null
+  - sudo chroot $CHROOTDIR apt-get install -qq apt-utils build-essential python-pip libboost-dev debootstrap automake groff-base libgmp3-dev libltdl-dev libunistring-dev libffi-dev libncurses5-dev imagemagick libssl-dev pkg-config zlib1g-dev gettext git curl subversion check intltool gperf flex bison xmlto php5 expect libgc-dev cython xz-utils cmake swig > /dev/null
+  - sudo chroot $CHROOTDIR pip install -U setuptools pip wheel httpie > /dev/null
+  - sudo rsync -av $TRAVIS_BUILD_DIR $CHROOTDIR > /dev/null
+  - echo "#!/bin/bash" > ${HOME}/script.sh
+  - echo "sudo chroot $CHROOTDIR bash -c 'cd ${SOURCE} && make arch-${ARCH_VERSION}'" >> ${HOME}/script.sh
+  - chmod +x ${HOME}/script.sh 
+
+script:
+  - travis_wait ${HOME}/script.sh 
+
+cache:
+  apt: true
+  directories:
+    - $CHROOTDIR/spksrc/distrib
+    - $CHROOTDIR/var/cache/apt/archives
+
