@@ -1,3 +1,7 @@
+.. image:: https://travis-ci.org/GaetanCambier/spksrc.svg?branch=develop
+    :target: https://travis-ci.org/GaetanCambier/spksrc
+    :alt: Build status for squidguard and haproxy package
+
 spksrc
 ======
 spksrc is a cross compilation framework intended to compile and package softwares for Synology NAS
