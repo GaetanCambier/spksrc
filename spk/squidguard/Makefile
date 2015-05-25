@@ -3,9 +3,6 @@ SPK_VERS = 3.5.4
 SPK_REV = 1
 SPK_ICON = src/squidguard.png
 
-REQUIRED_DSM = 4.3
-UNSUPPORTED_ARCHS = bromolow cedarview x86
-
 DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
 
 SPK_DEPENDS = "AntiVirus>1.2:Perl"
