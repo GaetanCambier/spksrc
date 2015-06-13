@@ -1,6 +1,6 @@
 SPK_NAME = squidguard
-SPK_VERS = 3.5.4
-SPK_REV = 1
+SPK_VERS = 3.5.5
+SPK_REV = 3
 SPK_ICON = src/squidguard.png
 
 DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
@@ -15,10 +15,11 @@ DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de f
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
 CHANGELOG="\
-1. Update to Squid 3.5.4<br>\
-2. Update to Openssl 1.0.2a<br>\
-3. Update to Linux-PAM 1.2.0<br>\
-4. Fixe multiples minors bugs<br>"
+1. Update to Squid 3.5.5<br>\
+2. Update to Openssl 1.0.2c<br>\
+3. Update to SquidClamAv 6.13<br>\
+4. Fixe multiples minors bugs<br>\
+"
 
 
 HOMEPAGE   = http://www.squidguard.org/
