@@ -13,7 +13,7 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 
-CONFIGURE_ARGS  = --with-openssl --enable-ssl-crtd --disable-arch-native --disable-external-acl-helpers squid_cv_gnu_atomics=no
+CONFIGURE_ARGS  = --with-openssl --enable-linux-netfilter --enable-ssl-crtd --disable-arch-native --disable-external-acl-helpers squid_cv_gnu_atomics=no
 
 HOSTCFGEN_NATIVE = $(WORK_DIR)/../../../native/$(PKG_NAME)/work-native/$(PKG_DIR)/src/cf_gen
 HOSTCFGEN = $(WORK_DIR)/$(PKG_DIR)/cf_gen
