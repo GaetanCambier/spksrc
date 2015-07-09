@@ -10,11 +10,11 @@ bin:bin/ldapurl
 bin:bin/ldapwhoami
 etc:etc/openldap/ldap.conf
 lnk:lib/liblber-2.4.so.2
-lib:lib/liblber-2.4.so.2.10.3
+lib:lib/liblber-2.4.so.2.10.4
 lnk:lib/liblber.so
 lnk:lib/libldap-2.4.so.2
-lib:lib/libldap-2.4.so.2.10.3
+lib:lib/libldap-2.4.so.2.10.4
 lnk:lib/libldap_r-2.4.so.2
-lib:lib/libldap_r-2.4.so.2.10.3
+lib:lib/libldap_r-2.4.so.2.10.4
 lib:lib/libldap_r.so
 lib:lib/libldap.so
