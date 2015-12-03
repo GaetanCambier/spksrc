@@ -1,9 +1,9 @@
 PKG_NAME = pyload
-PKG_VERS = 0.4.9
+PKG_VERS = 5db85c41e9f92b35d71396f8bf12ad84f37127f6
 PKG_EXT = zip
-PKG_DIST_NAME = $(PKG_NAME)-src-v$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = http://download.pyload.org
-PKG_DIR = pyload
+PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
+PKG_DIST_SITE = https://github.com/pyload/pyload/archive
+PKG_DIR = pyload-$(PKG_VERS)
 
 DEPENDS =
 

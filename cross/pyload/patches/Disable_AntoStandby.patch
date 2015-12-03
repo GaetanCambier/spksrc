@@ -1,0 +1,11 @@
+--- module/plugins/hooks/AntiStandby.py.orig	2015-10-07 17:13:45.767610530 +0200
++++ module/plugins/hooks/AntiStandby.py	2015-10-07 17:14:23.959692233 +0200
+@@ -30,7 +30,7 @@
+     __version__ = "0.11"
+     __status__  = "testing"
+ 
+-    __config__ = [("activated", "bool", "Activated"                       , True ),
++    __config__ = [("activated", "bool", "Activated"                       , False),
+                   ("hdd"      , "bool", "Prevent HDD standby"             , True ),
+                   ("system"   , "bool", "Prevent OS standby"              , True ),
+                   ("display"  , "bool", "Prevent display standby"         , False),

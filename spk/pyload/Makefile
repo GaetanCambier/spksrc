@@ -1,6 +1,6 @@
 SPK_NAME = pyload
 SPK_VERS = 0.4.9
-SPK_REV = 1
+SPK_REV = 2
 SPK_ICON = src/pyload.png
 DSM_UI_DIR = app
 
@@ -9,9 +9,9 @@ BETA = 1
 DEPENDS = cross/tesseract-ocr cross/tessdata-eng cross/js cross/$(SPK_NAME)
 SPK_DEPENDS = "python>2.7.3-3"
 
-MAINTAINER = SynoCommunity
+MAINTAINER = Cambier Gaetan
 DESCRIPTION = pyLoad is a fast, lightweight and full featured download manager for many One-Click-Hoster, container formats like DLC, video sites or just plain http/ftp links.
-ADMIN_PORT = 8190
+ADMIN_PORT = 8001
 RELOAD_UI = yes
 STARTABLE = yes
 DISPLAY_NAME = pyLoad
