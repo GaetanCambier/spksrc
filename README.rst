@@ -1,7 +1,3 @@
-.. image:: https://travis-ci.org/GaetanCambier/spksrc.svg?branch=develop
-    :target: https://travis-ci.org/GaetanCambier/spksrc
-    :alt: Build status for squidguard and haproxy package
-
 spksrc
 ======
 spksrc is a cross compilation framework intended to compile and package softwares for Synology NAS
@@ -12,7 +8,7 @@ To use spksrc, it is recommended to use a virtual machine with an x86, 32-bit ve
 
 You'll also need some stuff::
 
-    sudo aptitude install build-essential debootstrap python-pip automake libgmp3-dev libltdl-dev libunistring-dev libffi-dev ncurses-dev imagemagick libssl-dev pkg-config zlib1g-dev gettext git curl subversion check bjam intltool gperf flex bison xmlto php5 expect libgc-dev mercurial cython lzip cmake swig
+    sudo apt-get install build-essential debootstrap python-pip automake libgmp3-dev libltdl-dev libunistring-dev libffi-dev libncurses5-dev imagemagick libssl-dev pkg-config zlib1g-dev gettext git curl subversion check libboost1.55-tools-dev intltool gperf flex bison xmlto php5 expect libgc-dev mercurial cython lzip cmake swig
     sudo pip install -U setuptools pip wheel httpie
 
 You may need to install some packages from testing like autoconf. Read about Apt-Pinning to know how to do that.
@@ -95,47 +91,3 @@ on GitHub and published in `SynoCommunity's repository`_.
 
 If you are not familiar with git or GitHub, please refer to the excellent `GitHub help pages`_.
 
-Donate
-------
-If you like spksrc and packages made out of it, please consider making a donation to his authors:
-
-* Diaoul
-
-  .. image:: https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif
-    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F6GDE5APQ4SBN
-
-  .. image:: http://api.flattr.com/button/flattr-badge-large.png
-    :target: http://flattr.com/thing/718012/SynoCommunity
-
-* moneytoo
-
-  .. image:: https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif
-    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DQKBRZBVPC77L
-
-* piwi82
-
-  .. image:: https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif
-    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=T6BU3QXYH4CMG
-    
-* bru7us
-
-  .. image:: https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif
-    :target: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=W3UX3VM22WRQY&item_name=SynoCommunity
-
-  .. image:: http://api.flattr.com/button/flattr-badge-large.png
-    :target: http://flattr.com/thing/1106801/
-
-Bugs
-----
-If you find a bug please report it in the `bug tracker`_ if it has not already been reported. Be sure to provide as much information as possible.
-
-License
--------
-When not explicitly set, files are placed under a `3 clause BSD license`_
-
-
-.. _Architecture per Synology model: https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model
-.. _3 clause BSD license: http://www.opensource.org/licenses/BSD-3-Clause
-.. _bug tracker: https://github.com/SynoCommunity/spksrc/issues
-.. _GitHub help pages: https://help.github.com
-.. _SynoCommunity's repository: http://www.synocommunity.com/
