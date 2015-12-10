@@ -12,6 +12,7 @@ HOMEPAGE = http://www.oracle.com/technetwork/database/database-technologies/berk
 COMMENT  = Berkeley DB is a family of embedded key-value database libraries providing scalable high-performance data management services to applications. The Berkeley DB products use simple function-call APIs for data access and management.
 LICENSE  = AGPLv3
 
+DOWNLOAD_TARGET = nope
 CONFIGURE_TARGET = myConfigure
 
 include ../../mk/spksrc.cross-cc.mk
