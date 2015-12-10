@@ -1,6 +1,6 @@
 lnk:lib/libcap.so
 lnk:lib/libcap.so.2
-lib:lib/libcap.so.2.22
+lib:lib/libcap.so.2.24
 bin:sbin/capsh
 bin:sbin/getcap
 bin:sbin/getpcaps
