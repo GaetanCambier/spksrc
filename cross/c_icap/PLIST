@@ -8,5 +8,5 @@ lib:lib/c_icap/srv_echo.so
 lib:lib/c_icap/srv_ex206.so
 lib:lib/c_icap/sys_logger.so
 lnk:lib/libicapapi.so
-lnk:lib/libicapapi.so.3
-lib:lib/libicapapi.so.3.0.5
+lnk:lib/libicapapi.so.4
+lib:lib/libicapapi.so.4.0.2
