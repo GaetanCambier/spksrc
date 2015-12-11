@@ -1,8 +1,8 @@
 PKG_NAME = squid
-PKG_VERS = 3.5.12
+PKG_VERS = 4.0.3
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.5
+PKG_DIST_SITE = http://www.squid-cache.org/Versions/v4
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = 
@@ -13,7 +13,6 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 CONFIGURE_ARGS  = --enable-linux-netfilter --with-openssl --enable-ssl-crtd --disable-external-acl-helpers 
-#CXXFLAGS=" -I/usr/include/c++/v1/ -lstdc++"
 
 COMPILE_TARGET = myCompile
 INSTALL_TARGET = noop
