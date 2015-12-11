@@ -1,8 +1,8 @@
 PKG_NAME = squid
-PKG_VERS = 3.5.6
+PKG_VERS = 3.5.12
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.5/
+PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.5
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = 
@@ -12,13 +12,15 @@ COMMENT  = Squid is a fully-featured HTTP/1.0 proxy which is almost HTTP/1.1 com
 LICENSE  = 
 
 GNU_CONFIGURE = 1
-CONFIGURE_ARGS  = --with-openssl --enable-ssl-crtd --disable-external-acl-helpers
+CONFIGURE_ARGS  = --enable-linux-netfilter --with-openssl --enable-ssl-crtd --disable-external-acl-helpers 
+#CXXFLAGS=" -I/usr/include/c++/v1/ -lstdc++"
 
 COMPILE_TARGET = myCompile
 INSTALL_TARGET = noop
 
 include ../../mk/spksrc.native-cc.mk
 
+
 myCompile:
-	$(RUN) ;cd src;$(MAKE) cf_gen_defines.cci cf_gen
+	$(RUN); cd src; $(MAKE) cf_gen_defines.cci cf_gen
 

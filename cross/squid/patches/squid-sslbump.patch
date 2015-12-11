@@ -1,0 +1,16 @@
+--- configure.orig	2015-08-15 16:22:42.417749775 +0200
++++ configure	2015-08-15 16:22:04.441759850 +0200
+@@ -23017,10 +23017,10 @@
+ $as_echo_n "checking whether the workaround for SSL_get_certificate works... " >&6; }
+   if test "$cross_compiling" = yes; then :
+ 
+-   $as_echo "#define SQUID_USE_SSLGETCERTIFICATE_HACK 0" >>confdefs.h
++   $as_echo "#define SQUID_USE_SSLGETCERTIFICATE_HACK 1" >>confdefs.h
+ 
+-   { $as_echo "$as_me:${as_lineno-$LINENO}: result: cross-compile, assuming no" >&5
+-$as_echo "cross-compile, assuming no" >&6; }
++   { $as_echo "$as_me:${as_lineno-$LINENO}: result: cross-compile, assuming yes" >&5
++$as_echo "cross-compile, assuming yes" >&6; }
+ 
+ else
+   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
