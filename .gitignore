@@ -5,9 +5,9 @@ cross/*/work*
 kernel/*/work*
 spk/*/work*
 toolchains/*/work*
-native/*/compile.log
-cross/*/compile.log
-spk/*/compile.log
+native/*/compile*.log
+cross/*/compile*.log
+spk/*/compile*.log
 local.mk
 *.DS_Store
 *~
