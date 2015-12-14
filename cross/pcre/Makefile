@@ -13,4 +13,6 @@ LICENSE  = BSD
 
 GNU_CONFIGURE = 1
 
+CONFIGURE_ARGS  = --enable-pcre16 --enable-pcre32 --enable-jit --enable-utf --enable-unicode-properties
+
 include ../../mk/spksrc.cross-cc.mk
