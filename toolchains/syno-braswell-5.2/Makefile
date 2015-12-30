@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 TC_NAME = syno-braswell
+=======
+TC_NAME = syno-$(TC_ARCH)
+>>>>>>> upstream/master
 
 TC_ARCH = braswell
 TC_VERS = 5.2
@@ -26,4 +30,7 @@ include ../../mk/spksrc.tc.mk
 myFix:
 	chmod -R u+w $(WORK_DIR)
 	@find $(WORK_DIR)/$(TC_BASE_DIR) -type f -name '*.la' -exec sed -i -e "s|^libdir=.*$$|libdir='$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/lib'|" {} \;
+<<<<<<< HEAD
 
+=======
+>>>>>>> upstream/master
