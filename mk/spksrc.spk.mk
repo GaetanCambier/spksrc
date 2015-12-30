@@ -70,15 +70,14 @@ $(WORK_DIR)/INFO:
 	   ) \
 	) | sed 's|"\s|"\n|' >> $@
 	@echo arch=\"$(SPK_ARCH)\" >> $@
-	@echo distributor=\"Cambier.org\" >> $@
-	@echo distributor_url=\"http://www.cambier.org\" >> $@
-ifeq ($(strip $(MAINTAINER)),Cambier.org)
-	@echo maintainer=\"Cambier.org\" >> $@
-	@echo maintainer_url=\"http://www.cambier.org\" >> $@
+ifneq ($(strip $(MAINTAINER)),)
+	@echo maintainer=\"$(MAINTAINER)\" >> $@
 else
-	@echo maintainer=\"Cambier.org/$(MAINTAINER)\" >> $@
-	@echo maintainer_url=\"https://github.com/GaetanCambier\" >> $@
+	$(error Set MAINTAINER in local.mk)
 endif
+	@echo maintainer_url=\"$(MAINTAINER_URL)\" >> $@
+	@echo distributor=\"$(DISTRIBUTOR)\" >> $@
+	@echo distributor_url=\"$(DISTRIBUTOR_URL)\" >> $@
 ifneq ($(strip $(FIRMWARE)),)
 	@echo firmware=\"$(FIRMWARE)\" >> $@
 else
@@ -89,7 +88,7 @@ else
   endif
 endif
 ifneq ($(strip $(BETA)),)
-	@echo report_url=\"https://github.com/GaetanCambier/spksrc/issues\" >> $@
+	@echo report_url=\"$(REPORT_URL)\" >> $@
 endif
 ifneq ($(strip $(HELPURL)),)
 	@echo helpurl=\"$(HELPURL)\" >> $@
