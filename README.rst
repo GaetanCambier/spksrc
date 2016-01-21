@@ -1,6 +1,6 @@
 spksrc
 ======
-spksrc is a cross compilation framework intended to compile and package softwares for Synology NAS
+spksrc is a cross compilation framework intended to compile and package software for Synology NAS devices. Packages are made available via the `SynoCommunity repository`_.
 
 Requirements
 ------------
@@ -28,66 +28,34 @@ Lets start with an example::
 
 What have I done?
 ^^^^^^^^^^^^^^^^^
+=======
 
-* You cloned the repository
-* Went into the directory of the SPK for transmission
-* Started building the SPK for the architecture 88f6281
+Contributing
+------------
+Before opening issues or package requests, see `CONTRIBUTING`_.
 
-  * To list all available architectures use ``ls toolchains`` from within the ``spksrc`` directory. Remove the prefix syno- to have the actual architecture.
-  * An overview of which architecture is used per Synology model can be found on the wiki page `Architecture per Synology model`_
 
-At the end of the process, the SPK will be available in ``spksrc/packages/``
+Setup Development Environment
+-----------------------------
+Docker
+^^^^^^
+* Fork and clone spksrc: ``git clone https://You@github.com/You/spksrc.git ~/spksrc``
+* Install Docker on your host OS: `Docker installation`_. A wget-based alternative for linux: `Install Docker with wget`_.
+* Download the spksrc docker container: ``docker pull synocommunity/spksrc``
+* Run the container with ``docker run -it -v ~/spksrc:/spksrc synocommunity/spksrc /bin/bash``
 
-What is spksrc doing?
-^^^^^^^^^^^^^^^^^^^^^
 
-* First spksrc will read ``spksrc/spk/transmission/Makefile``
-* Download the adequate toolchain for the chosen architecture
-* Recursively:
+Virtual machine
+^^^^^^^^^^^^^^^
+A virtual machine based on an x86, 32-bit version of Debian stable OS is recommended. Non-x86 architectures or 64-bit architectures are not supported.
 
-  * Process dependencies if any
-  * Download the source in ``spksrc/distrib/``
-  * Extract the source
-  * ``configure``
-  * ``make``
-  * ``make install``
+* Install the requirements::
 
-* Package all the requirements into a SPK under ``spksrc/packages/``:
+    sudo aptitude install build-essential debootstrap python-pip automake libgmp3-dev libltdl-dev libunistring-dev libffi-dev ncurses-dev imagemagick libssl-dev pkg-config zlib1g-dev gettext git curl subversion check bjam intltool gperf flex bison xmlto php5 expect libgc-dev mercurial cython lzip cmake swig
+    sudo pip install -U setuptools pip wheel httpie
 
-  * Binaries
-  * Installer script
-  * Start/Stop/Status script
-  * Package icon
-  * Wizards (optional)
-  * Help files (optional)
+* You may need to install some packages from testing like autoconf. Read about Apt-Pinning to know how to do that.
+* Start the virtual machine
 
-Contribute
-----------
-The only thing you should be editing in spksrc is Makefiles. To make a SPK, start by cross-compiling
-the underlying package. To do so:
-
-* Copy a standard cross package like ``spksrc/cross/transmission/Makefile``
-  in your new package directory ``spksrc/cross/newpackage/``
-* Edit the Makefile variables so it fits your new package
-* Empty variables ``DEPENDS`` and ``CONFIGURE_ARGS`` in the Makefile
-* Try to cross-compile and fix issues as they come (missing dependencies, configure arguments, patches)
-
-  * ``cd spksrc/cross/newpackage/``
-  * ``make arch-88f6281``
-  * Use ``make clean`` to clean up the whole working directory after a failed attempt
-  
-* On a successful cross-compilation create a PLIST file with the same syntax as
-  ``spksrc/cross/transmission/PLIST`` but based on the auto-generated PLIST for your
-  new package at ``spksrc/cross/newpackage/work-88f6281/newpackage.plist``
-
-Once you have successfully cross compiled the new package, to create the SPK:
-
-* Copy a standard SPK directory like ``spksrc/spk/transmission``
-  in your new SPK directory ``spksrc/spk/newspk``
-* Edit the stuff to fit your needs
-
-After all that hard work, submit a pull request to have your work merged with the main repository
-on GitHub and published in `SynoCommunity's repository`_.
-
-If you are not familiar with git or GitHub, please refer to the excellent `GitHub help pages`_.
+For further instructions, refer to Pull Requests section of `CONTRIBUTING`_.
 

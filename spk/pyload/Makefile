@@ -15,6 +15,7 @@ ADMIN_PORT = 8001
 RELOAD_UI = yes
 STARTABLE = yes
 DISPLAY_NAME = pyLoad
+CHANGELOG = Fix updatemanager
 
 HOMEPAGE   = http://pyload.org
 LICENSE    = GPLv3
