@@ -1,12 +1,9 @@
 PKG_NAME = domoticz
-PKG_VERS = $(PKG_SVN_REV)
-PKG_EXT = tar.gz
-PKG_DOWNLOAD_METHOD = svn
-PKG_SVN_REV = 2284
-PKG_DIST_NAME = trunk
-PKG_DIST_SITE = svn://svn.code.sf.net/p/domoticz/code
-PKG_DIST_FILE = $(PKG_NAME)-r$(PKG_SVN_REV).$(PKG_EXT)
-PKG_DIR = $(PKG_NAME)-r*
+PKG_VERS = fa67272d1edad74dfa344148c159a60e3c93e4c9
+PKG_EXT = zip
+PKG_DIST_NAME = $(PKG_VERS).$(PKG_EXT)
+PKG_DIST_SITE = https://github.com/domoticz/domoticz/archive
+PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = cross/boost cross/sqlite cross/curl
 
@@ -30,7 +27,6 @@ myConfigure:
 myInstall:
 	@mkdir -p $(STAGING_INSTALL_PREFIX)/bin
 	@$(RUN) install -m 755 domoticz $(STAGING_INSTALL_PREFIX)/bin
-	@$(RUN) install -m 644  svnversion.h $(STAGING_INSTALL_PREFIX)/
 	@$(RUN) cp -R www $(STAGING_INSTALL_PREFIX)
 	@$(RUN) cp -R Config $(STAGING_INSTALL_PREFIX)
 	@$(RUN) cp -R scripts $(STAGING_INSTALL_PREFIX)
