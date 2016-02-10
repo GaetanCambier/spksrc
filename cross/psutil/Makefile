@@ -1,5 +1,5 @@
 PKG_NAME = psutil
-PKG_VERS = 3.3.0
+PKG_VERS = 3.4.2
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://pypi.python.org/packages/source/p/$(PKG_NAME)
@@ -10,5 +10,7 @@ DEPENDS =
 HOMEPAGE = https://github.com/giampaolo/psutil
 COMMENT  = psutil is a cross-platform library for retrieving information onrunning processes and system utilization (CPU, memory, disks, network)in Python.
 LICENSE  = BSD
+
+ADDITIONAL_CFLAGS = -I$(INSTALL_DIR)$(INSTALL_PREFIX)/include/python2.7
 
 include ../../mk/spksrc.python-wheel.mk
