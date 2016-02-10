@@ -1,9 +1,9 @@
 PKG_NAME = adminer
 PKG_VERS = 4.2.3
-PKG_EXT = zip
-PKG_DIST_NAME = master.$(PKG_EXT)
+PKG_EXT = tar.gz
+PKG_DIST_NAME = v$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://github.com/vrana/adminer/archive
-PKG_DIR = $(PKG_NAME)-master
+PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS =
 
