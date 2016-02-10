@@ -30,7 +30,7 @@ POST_STRIP_TARGET = syncthing_extra_install
 BUSYBOX_CONFIG = usrmng daemon nice
 ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 
-ifneq ($(findstring $(ARCH),armada370 armadaxp armada375 alpine 88f5281 88f6281 comcerto2k evansport avoton bromolow cedarview x86 x64),$(ARCH))
+ifneq ($(findstring $(ARCH),armada370 armadaxp armada375 armada38x alpine 88f5281 88f6281 comcerto2k evansport avoton bromolow cedarview x86 x64),$(ARCH))
 $(error Unsupported ARCH $(ARCH))
 endif
 

@@ -16,7 +16,7 @@ TC_TARGET = arm-cortexa9-linux-gnueabi
 TC_CFLAGS =
 TC_CPPFLAGS =
 TC_CXXFLAGS =
-TC_LDFLAGS =
+TC_LDFLAGS = -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sysroot/usr/lib
 
 FIX_TARGET = myFix
 
