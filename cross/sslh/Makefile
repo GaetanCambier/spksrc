@@ -5,7 +5,7 @@ PKG_DIST_NAME = $(PKG_NAME)-v$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.rutschle.net/tech
 PKG_DIR = $(PKG_NAME)-v$(PKG_VERS)
 
-DEPENDS =
+DEPENDS = cross/libconfig
 
 HOMEPAGE = http://www.rutschle.net/tech/sslh.shtml
 COMMENT  = sslh accepts HTTPS, SSH and OpenVPN connections on the same port
