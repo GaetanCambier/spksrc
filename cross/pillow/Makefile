@@ -1,5 +1,5 @@
 PKG_NAME = Pillow
-PKG_VERS = 3.0.0
+PKG_VERS = 3.1.0
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = https://pypi.python.org/packages/source/P/$(PKG_NAME)
