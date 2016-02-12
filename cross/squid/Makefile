@@ -1,11 +1,11 @@
 PKG_NAME = squid
-PKG_VERS = 4.0.3
+PKG_VERS = 4.0.5
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.squid-cache.org/Versions/v4
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
-ifneq ($(findstring $(ARCH),avoton braswell bromolow cedarview x86 x64),$(ARCH))
+ifneq ($(findstring $(ARCH),armada38x avoton braswell bromolow cedarview x86 x64),$(ARCH))
 $(error Sorry, this package does not support the $(ARCH) architecture.)
 endif
 

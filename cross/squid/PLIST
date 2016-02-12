@@ -14,7 +14,7 @@ bin:libexec/basic_smb_auth
 rsc:libexec/basic_smb_auth.sh
 rsc:libexec/basic_smb_lm_auth
 rsc:libexec/cachemgr.cgi
-rsc:libexec/cert_valid.pl
+rsc:libexec/security_fake_certverify
 bin:libexec/digest_file_auth
 bin:libexec/digest_ldap_auth
 bin:libexec/diskd
@@ -24,7 +24,7 @@ rsc:libexec/log_file_daemon
 bin:libexec/negotiate_wrapper_auth
 bin:libexec/ntlm_fake_auth
 bin:libexec/ntlm_smb_lm_auth
-bin:libexec/ssl_crtd
+bin:libexec/security_file_certgen
 rsc:libexec/storeid_file_rewrite
 bin:libexec/unlinkd
 bin:libexec/url_fake_rewrite
