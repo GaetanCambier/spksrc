@@ -1,6 +1,6 @@
 TC_NAME = syno-x64
 
-TC_ARCH = x86 bromolow cedarview avoton
+TC_ARCH = x86 braswell bromolow cedarview avoton
 TC_VERS = 5.2
 TC_FIRMWARE = 5.0-4458
 
@@ -16,7 +16,7 @@ TC_TARGET = x86_64-pc-linux-gnu
 TC_CFLAGS =
 TC_CPPFLAGS =
 TC_CXXFLAGS =
-TC_LDFLAGS =
+TC_LDFLAGS = -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sys-root/usr/lib
 
 FIX_TARGET = myFix
 

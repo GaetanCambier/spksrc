@@ -101,6 +101,11 @@ preupgrade ()
         sed -ie "/^global$/a\	user haproxy" ${CFG_FILE}
         sed -ie "/^global$/a\	user haproxy" ${TPL_FILE}
     fi
+    # Revision for haproxy 1.6
+    if [ `echo ${SYNOPKG_OLD_PKGVER} | sed -r "s/^.*-([0-9]+)$/\1/"` -le 22 ]; then
+	sed -ie "s/listen stats :8280/listen stats\n\tbind :8280/" ${CFG_FILE}
+	sed -ie "s/listen stats :8280/listen stats\n\tbind :8280/" ${TPL_FILE}
+    fi
 
     # Save some stuff
     rm -fr ${TMP_DIR}/${PACKAGE}

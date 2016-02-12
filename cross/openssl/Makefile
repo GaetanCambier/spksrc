@@ -1,5 +1,5 @@
 PKG_NAME = openssl
-PKG_VERS = 1.0.2e
+PKG_VERS = 1.0.2f
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = ftp://ftp.openssl.org/source
@@ -19,18 +19,18 @@ STAGING_INSTALL_PREFIX := $(INSTALL_DIR)
 
 include ../../mk/spksrc.cross-cc.mk
 
-OPENSSL_ARCH = linux-generic32
-ifneq ($(findstring $(ARCH), bromolow cedarview x86 avoton x64 braswell),)
+ifneq ($(findstring $(ARCH), avoton braswell bromolow cedarview x86 x64),)
 OPENSSL_ARCH = linux-x86_64
-endif
-ifneq ($(findstring $(ARCH), 88f6281),)
-OPENSSL_ARCH = synology-armle
-endif
-ifneq ($(findstring $(ARCH), powerpc),)
-OPENSSL_ARCH = synology-ppc
-endif
-ifneq ($(findstring $(ARCH), x64),)
 EC_NIST=enable-ec_nistp_64_gcc_128
+endif
+ifneq ($(findstring $(ARCH), evansport),)
+OPENSSL_ARCH = linux-generic32
+endif
+ifneq ($(findstring $(ARCH), 88f6281 alpine armada370 armada375 armada38x armadaxp comcerto2k monaco ),)
+OPENSSL_ARCH = linux-armv4
+endif
+ifneq ($(findstring $(ARCH), powerpc ppc853x qoriq),)
+OPENSSL_ARCH = linux-ppc
 endif
 ifneq (5.0,$(firstword $(sort $(TCVERSION) 5.0)))
 PATCHES = $(sort $(wildcard patches/00*.patch))

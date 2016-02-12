@@ -16,6 +16,6 @@ TC_TARGET = powerpc-none-linux
 TC_CFLAGS = -mcpu=8548 -mhard-float -mfloat-gprs=double
 TC_CPPFLAGS = -mcpu=8548 -mhard-float -mfloat-gprs=double
 TC_CXXFLAGS = -mcpu=8548 -mhard-float -mfloat-gprs=double
-TC_LDFLAGS =
+TC_LDFLAGS = -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/libc/usr/lib
 
 include ../../mk/spksrc.tc.mk

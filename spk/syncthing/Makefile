@@ -1,6 +1,6 @@
 SPK_NAME = syncthing
-SPK_VERS = 0.12.5
-SPK_REV = 6
+SPK_VERS = 0.12.8
+SPK_REV = 7
 SPK_ICON = src/syncthing.png
 DSM_UI_DIR = app
 
@@ -14,10 +14,10 @@ DESCRIPTION_FRE = Synchronisation automatique de fichiers via une technologie s√
 ADMIN_PORT = 7070
 RELOAD_UI = yes
 DISPLAY_NAME = Syncthing
-CHANGELOG = "1. Update to 0.12.5<br>2. Move from beta to stable"
+CHANGELOG = "Update to 0.12.8"
 
-HOMEPAGE   = http://www.syncthing.net/
-LICENSE    =
+HOMEPAGE   = http://www.syncthing.net
+LICENSE    = MPLv2.0
 
 INSTALLER_SCRIPT = src/installer.sh
 SSS_SCRIPT       = src/dsm-control.sh
@@ -30,7 +30,7 @@ POST_STRIP_TARGET = syncthing_extra_install
 BUSYBOX_CONFIG = usrmng daemon nice
 ENV += BUSYBOX_CONFIG="$(BUSYBOX_CONFIG)"
 
-ifneq ($(findstring $(ARCH),armada370 armadaxp armada375 alpine 88f5281 88f6281 comcerto2k evansport avoton bromolow cedarview x86 x64),$(ARCH))
+ifneq ($(findstring $(ARCH),armada370 armadaxp armada375 armada38x alpine 88f5281 88f6281 comcerto2k evansport avoton bromolow cedarview x86 x64),$(ARCH))
 $(error Unsupported ARCH $(ARCH))
 endif
 

@@ -1,10 +1,8 @@
 SPK_NAME = pyload
 SPK_VERS = 0.4.9
-SPK_REV = 2
+SPK_REV = 20160201
 SPK_ICON = src/pyload.png
 DSM_UI_DIR = app
-
-BETA = 1
 
 DEPENDS = cross/tesseract-ocr cross/tessdata-eng cross/js cross/$(SPK_NAME)
 SPK_DEPENDS = "python>2.7.3-3"
@@ -15,6 +13,7 @@ ADMIN_PORT = 8001
 RELOAD_UI = yes
 STARTABLE = yes
 DISPLAY_NAME = pyLoad
+CHANGELOG = Fix updatemanager
 
 HOMEPAGE   = http://pyload.org
 LICENSE    = GPLv3

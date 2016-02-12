@@ -13,4 +13,6 @@ TC_BASE_DIR = arm-marvell-linux-gnueabi
 TC_PREFIX = arm-marvell-linux-gnueabi
 TC_TARGET = arm-marvell-linux-gnueabi
 
+TC_LDFLAGS = -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/libc/usr/lib
+
 include ../../mk/spksrc.tc.mk

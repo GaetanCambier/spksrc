@@ -13,7 +13,6 @@ COMMENT    = Cross platform, open source .NET development framework
 LICENSE    = https://github.com/mono/mono/blob/master/LICENSE
 
 GNU_CONFIGURE = 1
-CONFIGURE_ARGS = --host=i386-linux-gnu
 
 POST_INSTALL_TARGET = myPostInstall
 

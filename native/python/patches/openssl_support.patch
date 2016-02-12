@@ -1,0 +1,10 @@
+--- setup.py.orig	2016-01-30 14:07:10.889470800 +0100
++++ setup.py	2016-01-30 14:07:50.609470800 +0100
+@@ -791,6 +791,7 @@
+         search_for_ssl_incs_in = [
+                               '/usr/local/ssl/include',
+                               '/usr/contrib/ssl/include/'
++                              '/usr/include/openssl'
+                              ]
+         ssl_incs = find_file('openssl/ssl.h', inc_dirs,
+                              search_for_ssl_incs_in

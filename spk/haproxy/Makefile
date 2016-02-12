@@ -1,6 +1,6 @@
 SPK_NAME = haproxy
-SPK_VERS = 2.5.15
-SPK_REV = 22
+SPK_VERS = 2.6.3
+SPK_REV = 24
 SPK_ICON = src/haproxy.png
 DSM_UI_DIR = app
 
@@ -15,8 +15,10 @@ ADMIN_PORT = 8280
 RELOAD_UI = yes
 DISPLAY_NAME = HAProxy
 CHANGELOG = "\
-1. Update to haproxy 1.5.15<br>\
-2. Update to openssl 1.0.2e"
+1. Update to Openssl 1.0.2f<br>\
+2. Update to PCRE 8.38<br>\
+3. Fixe multiples minors bugs<br>\
+"
 
 HOMEPAGE   = http://haproxy.1wt.eu/
 LICENSE    = GNU GPL 2
