@@ -13,10 +13,10 @@ TC_BASE_DIR = arm-unknown-linux-gnueabi
 TC_PREFIX = arm-unknown-linux-gnueabi
 TC_TARGET = arm-unknown-linux-gnueabi
 
-TC_CFLAGS = -I$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/libc/include -mcpu=marvell-pj4 -march=armv7-a
-TC_CPPFLAGS = -I$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/libc/include -mcpu=marvell-pj4 -march=armv7-a
-TC_CXXFLAGS = -I$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sysroot/usr/include -mcpu=cortex-a9 -march=armv7-a
-TC_LDFLAGS = -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sysroot/lib -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sysroot/usr/lib -mcpu=cortex-a9 -march=armv7-a
+TC_CFLAGS = -I$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/libc/include -mtune=cortex-a9 -march=armv7-a
+TC_CPPFLAGS = -I$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/libc/include -mtune=cortex-a9 -march=armv7-a
+TC_CXXFLAGS = -I$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sysroot/usr/include -mtune=cortex-a9 -march=armv7-a
+TC_LDFLAGS = -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sysroot/lib -L$(WORK_DIR)/$(TC_BASE_DIR)/$(TC_BASE_DIR)/sysroot/usr/lib -mtune=cortex-a9 -march=armv7-a
 
 FIX_TARGET = myFix
 
