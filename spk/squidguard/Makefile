@@ -1,6 +1,6 @@
 SPK_NAME = squidguard
-SPK_VERS = 3.5.13
-SPK_REV = 6
+SPK_VERS = 3.5.15
+SPK_REV = 7
 SPK_ICON = src/squidguard.png
 
 DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
@@ -15,10 +15,12 @@ DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de f
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
 CHANGELOG="\
-1. Update to Squid 3.5.13<br>\
-2. Update to Openssl 1.0.2f<br>\
-3. Update to Squidclamav 6.15<br>\
-4. Fixe multiples minors bugs<br>\
+1. Update to Squid 3.5.15<br>\
+2. Update to Openssl 1.0.2g<br>\
+3. Update Implementation of draft and RFC versions of CHACHA20-POLY1305<br>\
+4. Update to Openldap 2.4.44<br>\
+5. Update to Libcap2 2.25<br>\
+6. Fixe multiples minors bugs<br>\
 "
 
 HOMEPAGE   = http://www.squidguard.org/
@@ -57,6 +59,8 @@ xz-compress:
 	install -m 644 src/app/babel.* $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/synocommunity.png $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/blocked.gif $(STAGING_DIR)/share/www/squidguardmgr/
+	install -m 644 src/app/Blank.gif $(STAGING_DIR)/share/www/squidguardmgr/
+	install -m 644 src/app/blank.cgi $(STAGING_DIR)/share/www/squidguardmgr/
 	for size in 16 24 32 48 72 ; \
 	do \
 	    convert $(SPK_ICON) -thumbnail $${size}x$${size} -transparent white \
