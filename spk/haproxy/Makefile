@@ -1,6 +1,6 @@
 SPK_NAME = haproxy
 SPK_VERS = 2.6.3
-SPK_REV = 24
+SPK_REV = 25
 SPK_ICON = src/haproxy.png
 DSM_UI_DIR = app
 
@@ -15,8 +15,8 @@ ADMIN_PORT = 8280
 RELOAD_UI = yes
 DISPLAY_NAME = HAProxy
 CHANGELOG = "\
-1. Update to Openssl 1.0.2f<br>\
-2. Update to PCRE 8.38<br>\
+1. Update to Openssl 1.0.2g<br>\
+2. Update Implementation of draft and RFC versions of CHACHA20-POLY1305<br>\
 3. Fixe multiples minors bugs<br>\
 "
 
