@@ -8,10 +8,10 @@ ifneq ($(findstring $(TCVERSION),3.1 4.0 4.1 4.2 4.3),)
 $(error Sorry, this package does not support the $(ARCH)-$(TCVERSION) architecture.)
 endif
 ifneq ($(findstring $(TCVERSION),3.1 4.0 4.1 4.2 4.3),$(TCVERSION))
-SPK_VERS = 4.0.5
+SPK_VERS = 4.0.7
 DEPENDS = cross/busybox cross/squid cross/squidguard cross/squidguardmanager cross/squidclamav
 CHANGELOG="\
-1. Update to Squid 4.0.5<br>\
+1. Update to Squid 4.0.7<br>\
 2. Update to Openssl 1.0.2g<br>\
 3. Update to Busybox 1.24.1<br>\
 4. Update to C_icap 0.4.2<br>\
@@ -23,10 +23,10 @@ CHANGELOG="\
 "
 endif
 ifneq ($(findstring $(ARCH),armada38x avoton braswell bromolow cedarview x86 x64),$(ARCH))
-SPK_VERS = 3.5.12
+SPK_VERS = 3.5.15
 DEPENDS = cross/busybox cross/squid-3.5 cross/squidguard cross/squidguardmanager cross/squidclamav
 CHANGELOG="\
-1. Update to Squid 3.5.12<br>\
+1. Update to Squid 3.5.15<br>\
 2. Update to Openssl 1.0.2g<br>\
 3. Update to Busybox 1.24.1<br>\
 4. Update to C_icap 0.4.2<br>\
