@@ -27,13 +27,23 @@ start_daemon ()
     ${CICAP} -f ${CICAP_CFG}
        
     # launch squid
-    su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE}"
+    if [ ${SYNOPKG_DSM_VERSION_MAJOR} -lt "6" ];
+    then
+        su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE}"
+    else
+        sudo -u ${RUNAS} ${SQUID} -f ${CFG_FILE}
+    fi
 }
 
 stop_daemon ()
 {
     # stop squid
-    su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE} -k shutdown"
+    if [ ${SYNOPKG_DSM_VERSION_MAJOR} -lt "6" ];
+    then
+        su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE} -k shutdown"
+    else
+        sudo -u ${RUNAS} ${SQUID} -f ${CFG_FILE} -k shutdown
+    fi
     wait_for_status 1 20
     
     # stop c-icap
