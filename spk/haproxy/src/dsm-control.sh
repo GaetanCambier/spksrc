@@ -17,12 +17,22 @@ CFG_FILE="${INSTALL_DIR}/var/haproxy.cfg"
 
 start_daemon ()
 {
-    su - ${RUNAS} -c "PATH=${PATH} ${HAPROXY} -f ${CFG_FILE} -p ${PID_FILE}"
+    if [ ${SYNOPKG_DSM_VERSION_MAJOR} -lt "6" ];
+    then
+        su - ${RUNAS} -c "PATH=${PATH} ${HAPROXY} -f ${CFG_FILE} -p ${PID_FILE}"
+    else
+        sudo -u ${RUNAS} PATH=${PATH} ${HAPROXY} -f ${CFG_FILE} -p ${PID_FILE}
+    fi
 }
 
 check_config ()
 {
-    su - ${RUNAS} -c "PATH=${PATH} ${HAPROXY} -c -f ${CFG_FILE}" > /dev/null
+    if [ ${SYNOPKG_DSM_VERSION_MAJOR} -lt "6" ];
+    then
+        su - ${RUNAS} -c "PATH=${PATH} ${HAPROXY} -c -f ${CFG_FILE}" > /dev/null
+    else
+        sudo -u ${RUNAS} PATH=${PATH} ${HAPROXY} -c -f ${CFG_FILE} > /dev/null
+    fi
 }
 
 stop_daemon ()
