@@ -1,5 +1,5 @@
 PKG_NAME = squid
-PKG_VERS = 4.0.5
+PKG_VERS = 4.0.7
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.squid-cache.org/Versions/v4
