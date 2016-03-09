@@ -1,5 +1,5 @@
 SPK_NAME = squidguard
-SPK_REV = 5
+SPK_REV = 7
 BETA = 1
 SPK_ICON = src/squidguard.png
 SPK_DEPENDS = "AntiVirus>1.2:Perl"
@@ -11,14 +11,14 @@ ifneq ($(findstring $(TCVERSION),3.1 4.0 4.1 4.2 4.3),$(TCVERSION))
 SPK_VERS = 4.0.5
 DEPENDS = cross/busybox cross/squid cross/squidguard cross/squidguardmanager cross/squidclamav
 CHANGELOG="\
-1. Update to Squid 4.0.3<br>\
-2. Update to Openssl 1.0.2e<br>\
+1. Update to Squid 4.0.5<br>\
+2. Update to Openssl 1.0.2g<br>\
 3. Update to Busybox 1.24.1<br>\
 4. Update to C_icap 0.4.2<br>\
-5. Update to Libcap 2.24<br>\
-6. Update to Openldap 2.4.43<br>\
+5. Update to Libcap 2.25<br>\
+6. Update to Openldap 2.4.44<br>\
 7. Update to Squidclamav 6.14<br>\
-8. Add TPROXY support for x64 platform<br>\
+8. Update Implementation of draft and RFC versions of CHACHA20-POLY1305<br>\
 9. Fixe multiples minors bugs<br>\
 "
 endif
@@ -27,13 +27,14 @@ SPK_VERS = 3.5.12
 DEPENDS = cross/busybox cross/squid-3.5 cross/squidguard cross/squidguardmanager cross/squidclamav
 CHANGELOG="\
 1. Update to Squid 3.5.12<br>\
-2. Update to Openssl 1.0.2e<br>\
+2. Update to Openssl 1.0.2g<br>\
 3. Update to Busybox 1.24.1<br>\
 4. Update to C_icap 0.4.2<br>\
-5. Update to Libcap 2.24<br>\
-6. Update to Openldap 2.4.43<br>\
+5. Update to Libcap 2.25<br>\
+6. Update to Openldap 2.4.44<br>\
 7. Update to Squidclamav 6.14<br>\
-8. Fixe multiples minors bugs<br>\
+8. Add TPROXY support for x64 platform<br>\
+9. Fixe multiples minors bugs<br>\
 "
 endif
 
@@ -82,6 +83,8 @@ xz-compress:
 	install -m 644 src/app/babel.* $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/synocommunity.png $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/blocked.gif $(STAGING_DIR)/share/www/squidguardmgr/
+	install -m 644 src/app/Blank.gif $(STAGING_DIR)/share/www/squidguardmgr/
+	install -m 644 src/app/blank.cgi $(STAGING_DIR)/share/www/squidguardmgr/
 	for size in 16 24 32 48 72 ; \
 	do \
 	    convert $(SPK_ICON) -thumbnail $${size}x$${size} -transparent white \

@@ -1,8 +1,8 @@
---- Make.Rules.old	2011-07-25 04:18:23.000000000 +0200
-+++ Make.Rules	2013-02-22 22:11:14.000000000 +0100
-@@ -47,25 +47,18 @@
- KERNEL_HEADERS := $(topdir)/libcap/include
- IPATH += -fPIC -I$(topdir)/libcap/include -I$(KERNEL_HEADERS)
+--- Make.Rules.orig	2016-03-05 09:52:15.561315800 +0100
++++ Make.Rules	2016-03-05 09:59:18.573315800 +0100
+@@ -48,26 +48,19 @@
+ KERNEL_HEADERS := $(topdir)/libcap/include/uapi
+ IPATH += -fPIC -I$(KERNEL_HEADERS) -I$(topdir)/libcap/include
  
 -CC := gcc
 -CFLAGS := -O2 -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
@@ -17,6 +17,7 @@
          -Wnested-externs -Winline -Wshadow
  LD=$(CC) -Wl,-x -shared
 -LDFLAGS := #-g
+ BUILD_GPERF := $(shell which gperf >/dev/null 2>/dev/null && echo yes)
  
 -SYSTEM_HEADERS = /usr/include
 +SYSTEM_HEADERS = $(TC_PATH)/../include
@@ -25,14 +26,14 @@
  CFLAGS += -Dlinux $(WARNINGS) $(DEBUG)
 -PAM_CAP := $(shell if [ -f /usr/include/security/pam_modules.h ]; then echo yes ; else echo no ; fi)
 +PAM_CAP := $(shell if [ -f $(SYSTEM_HEADERS)/security/pam_modules.h ]; then echo yes ; else echo no ; fi)
- INDENT := $(shell if [ -n "$(which indent 2>/dev/null)" ]; then echo "| indent -kr" ; fi)
+ INDENT := $(shell if [ -n "$$(which indent 2>/dev/null)" ]; then echo "| indent -kr" ; fi)
  DYNAMIC := $(shell if [ ! -d "$(topdir)/.git" ]; then echo yes; fi)
- LIBATTR := yes
-@@ -78,7 +71,7 @@
+ 
+@@ -79,7 +72,7 @@
  #
  #    make RAISE_SETFCAP=no install
  #
--RAISE_SETFCAP := $(LIBATTR)
+-RAISE_SETFCAP := yes
 +RAISE_SETFCAP := no
  
  # Global cleanup stuff
