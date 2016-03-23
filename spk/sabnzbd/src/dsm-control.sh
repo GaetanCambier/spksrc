@@ -18,7 +18,12 @@ PID_FILE="${INSTALL_DIR}/var/sabnzbd.pid"
 
 start_daemon ()
 {
-    su - ${USER} -c "PATH=${PATH} ${PYTHON} ${SABNZBD} -f ${CFG_FILE} --pidfile ${PID_FILE} -d"
+    if [ ${SYNOPKG_DSM_VERSION_MAJOR} -lt "6" ];
+    then
+        su - ${USER} -c "PATH=${PATH} ${PYTHON} ${SABNZBD} -f ${CFG_FILE} --pidfile ${PID_FILE} -d"
+    else
+        sudo -u ${USER} PATH=${PATH} ${PYTHON} ${SABNZBD} -f ${CFG_FILE} --pidfile ${PID_FILE} -d
+    fi
 }
 
 stop_daemon ()
