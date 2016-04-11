@@ -1,8 +1,8 @@
 SPK_NAME = squidguard
-SPK_VERS = 3.5.15
-SPK_REV = 7
+SPK_VERS = $(shell date +%Y.%m.%d)
+SPK_REV = 11
 SPK_ICON = src/squidguard.png
-
+DSM_UI_DIR = ui
 DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
 
 SPK_DEPENDS = "AntiVirus>1.2:Perl"
@@ -15,12 +15,27 @@ DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de f
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
 CHANGELOG="\
-1. Update to Squid 3.5.15<br>\
-2. Update to Openssl 1.0.2g<br>\
-3. Update Implementation of draft and RFC versions of CHACHA20-POLY1305<br>\
-4. Update to Openldap 2.4.44<br>\
-5. Update to Libcap2 2.25<br>\
-6. Fixe multiples minors bugs<br>\
+1. Update to Squid 3.5.16<br>\
+2. Add support to adblock list<br>\
+3. Fix Dsm 6.0 Compatibility<br>\
+4. Fix Multiples minors bugs<br>\
+<br>\
+<b>Composants :</b><br>\
+Attr 2.4.47<br>\
+Berkeley-db 6.1.26<br>\
+Busybox 1.24.1<br>\
+C_icap 0.4.2<br>\
+Flex 2.5.39<br>\
+Libcap2 2.25<br>\
+Linux-pam 1.2.1<br>\
+Openldap 2.4.44<br>\
+Openssl 1.0.2g<br>\
+Squid 3.5.16<br>\
+SquidClamav 6.15<br>\
+SquidGuard 1.5-beta<br>\
+SquidGuardManager 1.14<br>\
+Zlib 1.2.8<br>\
+Implementation of draft and RFC versions of CHACHA20-POLY1305<br>\
 "
 
 HOMEPAGE   = http://www.squidguard.org/
@@ -29,7 +44,7 @@ LICENSE    = GNU PL - Copyright © 1990,2007 Oracle.  All rights reserved for be
 INSTALLER_SCRIPT = src/installer.sh
 SSS_SCRIPT       = src/dsm-control.sh
 FWPORTS          = src/${SPK_NAME}.sc
-
+CONF_DIR	 = conf
 INSTALL_PREFIX = /usr/local/$(SPK_NAME)
 POST_STRIP_TARGET = xz-compress
 
@@ -46,13 +61,13 @@ xz-compress:
 	install -m 755 -d $(STAGING_DIR)/share/c_icap/templates/
 	install -m 755 -d $(STAGING_DIR)/share/icons
 	install -m 755 -d $(STAGING_DIR)/share/errors
-	install -m 755 -d $(STAGING_DIR)/var/logs
-	install -m 755 -d $(STAGING_DIR)/var/run/c-icap
-	install -m 755 -d $(STAGING_DIR)/var/run/clamd
-	install -m 755 -d $(STAGING_DIR)/var/cache
-	install -m 755 -d $(STAGING_DIR)/var/db
+	install -m 775 -d $(STAGING_DIR)/var/logs
+	install -m 775 -d $(STAGING_DIR)/var/run/c-icap
+	install -m 775 -d $(STAGING_DIR)/var/run/clamd
+	install -m 775 -d $(STAGING_DIR)/var/cache
+	install -m 775 -d $(STAGING_DIR)/var/db
 	install -m 755 src/update_db.sh $(STAGING_DIR)/bin/
-	install -m 750 src/logrotate.sh $(STAGING_DIR)/bin/
+	install -m 755 src/logrotate.sh $(STAGING_DIR)/bin/
 	install -m 755 src/etc/* $(STAGING_DIR)/etc/
 	install -m 644 src/app/config $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 755 src/app/squidGuard.cgi $(STAGING_DIR)/share/www/squidguardmgr/
@@ -60,7 +75,7 @@ xz-compress:
 	install -m 644 src/app/synocommunity.png $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/blocked.gif $(STAGING_DIR)/share/www/squidguardmgr/
 	install -m 644 src/app/Blank.gif $(STAGING_DIR)/share/www/squidguardmgr/
-	install -m 644 src/app/blank.cgi $(STAGING_DIR)/share/www/squidguardmgr/
+	install -m 755 src/app/blank.cgi $(STAGING_DIR)/share/www/squidguardmgr/
 	for size in 16 24 32 48 72 ; \
 	do \
 	    convert $(SPK_ICON) -thumbnail $${size}x$${size} -transparent white \

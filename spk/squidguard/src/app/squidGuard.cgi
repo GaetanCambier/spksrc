@@ -84,7 +84,7 @@ $autoinaddr  = 2;			# 0|1|2;
 
 # You may wish to enter your company link and logo to be displayed on the page
 my $company = "http://SynoCommunity.com";
-my $companylogo = "http://$ENV{SERVER_NAME}:5000/webman/3rdparty/squidguard/synocommunity.png";
+my $companylogo = "synocommunity.png";
 
 my $squidguard = "http://www.squidguard.org";
 my $squidguardlogo = "http://www.squidguard.org/Logos/squidGuard.gif";
@@ -322,7 +322,7 @@ if ($targetgroup eq "in-addr") {
 $url =~ s/</&lt;/g ;
 $url =~ s/>/&gt;/g ;
 
-status("403 Forbidden");
+#status("403 Forbidden");
 expires(0);
 print "Content-type: text/html\n\n";
 print "<!DOCTYPE html PUBLIC \"-//W3C//DTD  HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">\n";

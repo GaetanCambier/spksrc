@@ -5,8 +5,9 @@
             "desc": "SquidGuard Manager",
             "icon": "images/icon{0}.png",
             "type": "url",
-            "url": "3rdparty/squidguard/squidguardmgr.cgi",
+            "url": "/webman/3rdparty/squidguard/squidguardmgr.cgi",
             "allUsers": false
         }
     }
 }
+

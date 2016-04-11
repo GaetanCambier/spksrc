@@ -3,11 +3,11 @@
 # Package
 PACKAGE="squidguard"
 DNAME="SquidGuard"
+DSMMAJOR=$(get_key_value /etc.defaults/VERSION majorversion)
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:/usr/local/bin:/bin:/usr/bin:/usr/syno/bin"
-RUNAS="squid"
 SQUID="${INSTALL_DIR}/sbin/squid"
 PID_FILE="${INSTALL_DIR}/var/run/squid.pid"
 CFG_FILE="${INSTALL_DIR}/etc/squid.conf"
@@ -21,36 +21,35 @@ CICAP_PID="${INSTALL_DIR}/var/run/c-icap/c-icap.pid"
 start_daemon ()
 {
     # launch clamd
-    nohup ${CLAMD} -c ${CLAMD_CFG} &
+    ${CLAMD} -c ${CLAMD_CFG} &
     
     # launch c-icap
     ${CICAP} -f ${CICAP_CFG}
        
     # launch squid
-    if [ ${SYNOPKG_DSM_VERSION_MAJOR} -lt "6" ];
-    then
-        su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE}"
-    else
-        sudo -u ${RUNAS} ${SQUID} -f ${CFG_FILE}
-    fi
+    ${SQUID} -f ${CFG_FILE}
+
+    return 0
 }
 
 stop_daemon ()
 {
     # stop squid
-    if [ ${SYNOPKG_DSM_VERSION_MAJOR} -lt "6" ];
-    then
-        su - ${RUNAS} -c "${SQUID} -f ${CFG_FILE} -k shutdown"
-    else
-        sudo -u ${RUNAS} ${SQUID} -f ${CFG_FILE} -k shutdown
-    fi
+    ${SQUID} -f ${CFG_FILE} -k shutdown
     wait_for_status 1 20
-    
+
     # stop c-icap
-    kill `cat ${CICAP_PID}`
+    kill -9 `cat ${CICAP_PID}`
 
     # stop clamd
-    kill `ps -w | grep clamd | grep squid | cut -b 1-5`
+    if [ ${DSMMAJOR} -lt "6" ];
+    then
+        kill -p `ps -w | grep nobody | grep clamd | cut -b 1-5`
+    else
+        pkill -9 -U nobody clamd
+    fi
+
+    return 0
 }
 
 daemon_status ()
