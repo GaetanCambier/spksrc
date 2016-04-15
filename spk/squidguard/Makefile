@@ -1,6 +1,6 @@
 SPK_NAME = squidguard
 SPK_VERS = $(shell date +%Y.%m.%d)
-SPK_REV = 11
+SPK_REV = 13
 SPK_ICON = src/squidguard.png
 DSM_UI_DIR = ui
 DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
@@ -15,10 +15,9 @@ DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de f
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
 CHANGELOG="\
-1. Update to Squid 3.5.16<br>\
-2. Add support to adblock list<br>\
-3. Fix Dsm 6.0 Compatibility<br>\
-4. Fix Multiples minors bugs<br>\
+1. Fix Dsm 6.0 Compatibility<br>\
+2. Fix Multiples minors bugs<br>\
+3. Fix right access error<br>\
 <br>\
 <b>Composants :</b><br>\
 Attr 2.4.47<br>\

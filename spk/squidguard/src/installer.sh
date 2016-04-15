@@ -7,6 +7,7 @@ DNAME="SquidGuard"
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
 PATH="${INSTALL_DIR}/bin:/usr/local/bin:/bin:/usr/bin:/usr/syno/bin"
+DB_DIR="${INSTALL_DIR}/var/db"
 SQUID="${INSTALL_DIR}/sbin/squid"
 CFG_FILE="${INSTALL_DIR}/etc/squid.conf"
 ETC_DIR="${INSTALL_DIR}/etc/"
@@ -35,13 +36,15 @@ postinst ()
     hostname=`hostname`
     sed "s/==HOSTNAME==/$hostname/g" ${ETC_DIR}/squidguard.conf.tpl > ${ETC_DIR}/squidguard.conf
     sed "s/==HOSTNAME==/$hostname/g" ${ETC_DIR}/squidclamav.conf.tpl > ${ETC_DIR}/squidclamav.conf    
-    # Correct the files ownership
-    chown -R root:nobody ${SYNOPKG_PKGDEST}
     if [ "${SYNOPKG_PKG_STATUS}" == "INSTALL" ]; then
         # Init squid cache directory
         ${SQUID} -z -f ${CFG_FILE}
         # launch first the update
         ${INSTALL_DIR}/bin/update_db.sh > ${INSTALL_DIR}/var/logs/update_db.log 2>&1 &
+        chown -R root:nobody ${SYNOPKG_PKGDEST}/
+        chmod g+w ${SYNOPKG_PKGDEST}
+        chmod -R g+w ${SYNOPKG_PKGDEST}/var
+        chown -R nobody:nobody ${DB_DIR}
     fi
     # Init SSLBump cache directory
     ${INSTALL_DIR}/libexec/ssl_crtd -c -s ${INSTALL_DIR}/var/ssl_db >> /dev/null
@@ -60,6 +63,7 @@ postinst ()
     fi
     # Add firewall config
     ${SERVICETOOL} --install-configure-file --package ${FWPORTS} >> /dev/null
+
     exit 0
 }
 
@@ -106,12 +110,21 @@ preupgrade ()
 postupgrade ()
 {
     # Restore some stuff
-
-    cp -R ${TMP_DIR}/${PACKAGE}/* ${INSTALL_DIR}/
-    rm -fr ${TMP_DIR}/${PACKAGE}
+    mv -f ${TMP_DIR}/${PACKAGE}/etc/* ${INSTALL_DIR}/etc/
+    rm -Rf ${INSTALL_DIR}/var/cache/*
+    mv -f ${TMP_DIR}/${PACKAGE}/var/cache/* ${INSTALL_DIR}/var/cache/
+    rm -Rf ${INSTALL_DIR}/var/db/*
+    mv -f ${TMP_DIR}/${PACKAGE}/var/db/* ${INSTALL_DIR}/var/db/
+    rm -Rf ${INSTALL_DIR}/var/ssl_db/*
+    mv -f ${TMP_DIR}/${PACKAGE}/var/ssl_db/* ${INSTALL_DIR}/var/ssl_db/
+    rm -Rf ${INSTALL_DIR}/var/logs/*
+    mv -f ${TMP_DIR}/${PACKAGE}/var/logs/* ${INSTALL_DIR}/var/logs/
+    rm -Rf ${TMP_DIR}/${PACKAGE}
     
     chown -R root:nobody ${SYNOPKG_PKGDEST}/
+    chmod g+w ${SYNOPKG_PKGDEST}
     chmod -R g+w ${SYNOPKG_PKGDEST}/var
+    chown -R nobody:nobody ${DB_DIR}
 
     # check squid.conf and restore default file if parse error
     ${SQUID} -f ${CFG_FILE} -k parse &> /dev/null
