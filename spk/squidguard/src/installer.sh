@@ -6,17 +6,15 @@ DNAME="SquidGuard"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"
-PATH="${INSTALL_DIR}/bin:/usr/local/bin:/bin:/usr/bin:/usr/syno/bin"
-DB_DIR="${INSTALL_DIR}/var/db"
+VAR_DIR="${INSTALL_DIR}/var"
+DB_DIR="${VAR_DIR}/db"
 SQUID="${INSTALL_DIR}/sbin/squid"
-CFG_FILE="${INSTALL_DIR}/etc/squid.conf"
-ETC_DIR="${INSTALL_DIR}/etc/"
+ETC_DIR="${INSTALL_DIR}/etc"
+CFG_FILE="${ECT_DIR}/squid.conf"
 WWW_DIR="/var/packages/${PACKAGE}/target/share/www/squidguardmgr"
-WEBMAN_DIR="/usr/syno/synoman/webman/3rdparty"
-SQUID_WRAPPER="${WWW_DIR}/squid_wrapper"
 SERVICETOOL="/usr/syno/bin/servicetool"
 FWPORTS="/var/packages/${PACKAGE}/scripts/${PACKAGE}.sc"
-TMP_DIR="${SYNOPKG_PKGDEST}/../../@tmp"
+TMP_DIR="${SYNOPKG_PKGDEST}/../../@tmp/${PACKAGE}"
 
 preinst ()
 {
@@ -90,40 +88,40 @@ postuninst ()
 preupgrade ()
 {
     # Save some stuff
-    rm -fr ${TMP_DIR}/${PACKAGE}
-    mkdir -p ${TMP_DIR}/${PACKAGE}/etc
-    mkdir -p ${TMP_DIR}/${PACKAGE}/var/cache
-    mkdir -p ${TMP_DIR}/${PACKAGE}/var/db
-    mkdir -p ${TMP_DIR}/${PACKAGE}/var/logs
-    mkdir -p ${TMP_DIR}/${PACKAGE}/var/ssl_db
-    mv ${INSTALL_DIR}/etc/squidguard.conf ${TMP_DIR}/${PACKAGE}/etc/
-    mv ${INSTALL_DIR}/etc/squid.conf ${TMP_DIR}/${PACKAGE}/etc/
-    mv ${INSTALL_DIR}/etc/squidclamav.conf ${TMP_DIR}/${PACKAGE}/etc/
-    mv ${INSTALL_DIR}/etc/adblock.conf ${TMP_DIR}/${PACKAGE}/etc/
-    mv ${INSTALL_DIR}/var/cache ${TMP_DIR}/${PACKAGE}/var/
-    mv ${INSTALL_DIR}/var/db ${TMP_DIR}/${PACKAGE}/var/
-    mv ${INSTALL_DIR}/var/logs ${TMP_DIR}/${PACKAGE}/var/
-    mv ${INSTALL_DIR}/var/ssl_db ${TMP_DIR}/${PACKAGE}/var/
+    rm -fr ${TMP_DIR}
+    mkdir -p ${TMP_DIR}/etc
+    mkdir -p ${TMP_DIR}/var/cache
+    mkdir -p ${TMP_DIR}/var/db
+    mkdir -p ${TMP_DIR}/var/logs
+    mkdir -p ${TMP_DIR}/var/ssl_db
+    mv ${ETC_DIR}/squidguard.conf ${TMP_DIR}/etc/
+    mv ${ETC_DIR}/squid.conf ${TMP_DIR}/etc/
+    mv ${ETC_DIR}/squidclamav.conf ${TMP_DIR}/etc/
+    mv ${ETC_DIR}/adblock.conf ${TMP_DIR}/etc/
+    mv ${VAR_DIR}/cache ${TMP_DIR}/var/
+    mv ${DB_DIR} ${TMP_DIR}/var/
+    mv ${VAR_DIR}/logs ${TMP_DIR}/var/
+    mv ${VAR_DIR}/ssl_db ${TMP_DIR}/var/
     exit 0
 }
 
 postupgrade ()
 {
     # Restore some stuff
-    mv -f ${TMP_DIR}/${PACKAGE}/etc/* ${INSTALL_DIR}/etc/
-    rm -Rf ${INSTALL_DIR}/var/cache/*
-    mv -f ${TMP_DIR}/${PACKAGE}/var/cache/* ${INSTALL_DIR}/var/cache/
-    rm -Rf ${INSTALL_DIR}/var/db/*
-    mv -f ${TMP_DIR}/${PACKAGE}/var/db/* ${INSTALL_DIR}/var/db/
-    rm -Rf ${INSTALL_DIR}/var/ssl_db/*
-    mv -f ${TMP_DIR}/${PACKAGE}/var/ssl_db/* ${INSTALL_DIR}/var/ssl_db/
-    rm -Rf ${INSTALL_DIR}/var/logs/*
-    mv -f ${TMP_DIR}/${PACKAGE}/var/logs/* ${INSTALL_DIR}/var/logs/
-    rm -Rf ${TMP_DIR}/${PACKAGE}
+    mv -f ${TMP_DIR}/etc/* ${ETC_DIR}/
+    rm -Rf ${VAR_DIR}/cache/*
+    mv -f ${TMP_DIR}/var/cache/* ${VAR_DIR}/cache/
+    rm -Rf ${DB_DIR}/*
+    mv -f ${TMP_DIR}/var/db/* ${DB_DIR}/
+    rm -Rf ${VAR_DIR}/ssl_db/*
+    mv -f ${TMP_DIR}/var/ssl_db/* ${VAR_DIR}/ssl_db/
+    rm -Rf ${VAR_DIR}/logs/*
+    mv -f ${TMP_DIR}/var/logs/* ${VAR_DIR}/logs/
+    rm -Rf ${TMP_DIR}
     
-    chown -R root:nobody ${SYNOPKG_PKGDEST}/
+    chown -R root:nobody ${SYNOPKG_PKGDEST}
     chmod g+w ${SYNOPKG_PKGDEST}
-    chmod -R g+w ${SYNOPKG_PKGDEST}/var
+    chmod -R g+w ${VAR_DIR}
     chown -R nobody:nobody ${DB_DIR}
 
     # check squid.conf and restore default file if parse error
