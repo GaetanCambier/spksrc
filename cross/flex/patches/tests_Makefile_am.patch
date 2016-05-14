@@ -1,0 +1,11 @@
+--- tests/Makefile.am.orig	2016-05-06 17:26:31.860396500 +0200
++++ tests/Makefile.am	2016-05-06 17:26:45.600396500 +0200
+@@ -332,7 +332,7 @@
+ 
+ # specify how to process .l files in order to test the flex built by make all
+ 
+-FLEX = $(top_builddir)/src/flex
++FLEX = flex
+ 
+ .l.c: $(FLEX)
+ 	$(FLEX) -o $@ $<

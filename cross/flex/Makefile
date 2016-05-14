@@ -1,5 +1,5 @@
 PKG_NAME = flex
-PKG_VERS = 2.5.39
+PKG_VERS = 2.6.0
 PKG_EXT = tar.gz
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 PKG_DIST_NAME = $(PKG_DIR).$(PKG_EXT)

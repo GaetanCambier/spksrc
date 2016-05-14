@@ -1,1 +1,8 @@
 bin:bin/flex
+bin:bin/flex++
+lnk:lib/libfl_pic.so
+lnk:lib/libfl_pic.so.2
+lib:lib/libfl_pic.so.2.0.0
+lnk:lib/libfl.so
+lnk:lib/libfl.so.2
+lib:lib/libfl.so.2.0.0
