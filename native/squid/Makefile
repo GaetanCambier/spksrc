@@ -1,5 +1,5 @@
 PKG_NAME = squid
-PKG_VERS = 3.5.17
+PKG_VERS = 3.5.19
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
 PKG_DIST_SITE = http://www.squid-cache.org/Versions/v3/3.5
@@ -13,13 +13,11 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 CONFIGURE_ARGS  = --enable-linux-netfilter --with-openssl --enable-ssl-crtd --disable-external-acl-helpers 
-#CXXFLAGS=" -I/usr/include/c++/v1/ -lstdc++"
 
 COMPILE_TARGET = myCompile
 INSTALL_TARGET = noop
 
 include ../../mk/spksrc.native-cc.mk
-
 
 myCompile:
 	$(RUN); cd src; $(MAKE) cf_gen_defines.cci cf_gen
