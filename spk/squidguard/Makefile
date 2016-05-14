@@ -1,6 +1,6 @@
 SPK_NAME = squidguard
 SPK_VERS = $(shell date +%Y.%m.%d)
-SPK_REV = 14
+SPK_REV = 15
 SPK_ICON = src/squidguard.png
 DSM_UI_DIR = ui
 DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
@@ -15,24 +15,23 @@ DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de f
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
 CHANGELOG="\
-1. Update to Squid 3.5.17<br>\
-2. Update to Openssl 1.0.2h<br>\
-3. Update to Busybox 1.24.2<br>\
-4. Update to C_icap 0.4.3<br>\
-5. Update to Linux-Pam 1.3.0<br>\
-6. Fix Multiples minors bugs<br>\
+1. Update to Squid 3.5.19<br>\
+2. Update to Berkeleydb 6.2.23<br>\
+3. Update to Flex 2.6.0<br>\
+4. Reduce Memory Footprint<br>\
+5. Fix Multiples minors bugs<br>\
 <br>\
 <b>Composants :</b><br>\
 Attr 2.4.47<br>\
-Berkeley-db 6.1.26<br>\
+Berkeley-db 6.2.23<br>\
 Busybox 1.24.2<br>\
 C_icap 0.4.3<br>\
-Flex 2.5.39<br>\
+Flex 2.6.0<br>\
 Libcap2 2.25<br>\
 Linux-pam 1.3.0<br>\
 Openldap 2.4.44<br>\
 Openssl 1.0.2h<br>\
-Squid 3.5.17<br>\
+Squid 3.5.19<br>\
 SquidClamav 6.15<br>\
 SquidGuard 1.5-beta<br>\
 SquidGuardManager 1.14<br>\

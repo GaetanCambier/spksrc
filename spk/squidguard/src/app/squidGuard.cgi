@@ -83,8 +83,8 @@ $autoinaddr  = 2;			# 0|1|2;
 					# 2 TO AUTORESOLVE & REDIRECT TO FIRST NAME
 
 # You may wish to enter your company link and logo to be displayed on the page
-my $company = "http://SynoCommunity.com";
-my $companylogo = "synocommunity.png";
+my $company = "https://www.cambier.org";
+my $companylogo = "https://www.cambier.org/hotlink-ok/proxy.png";
 
 my $squidguard = "http://www.squidguard.org";
 my $squidguardlogo = "http://www.squidguard.org/Logos/squidGuard.gif";
