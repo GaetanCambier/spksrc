@@ -13,6 +13,7 @@ LICENSE  = GNU PL
 
 DESTDIR = $(INSTALL_DIR)
 GNU_CONFIGURE = 1
+CONFIGURE_ARGS = --with-ldap
 POST_INSTALL_TARGET = myInstall
 
 include ../../mk/spksrc.cross-cc.mk
