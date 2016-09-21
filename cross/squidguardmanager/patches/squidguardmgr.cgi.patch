@@ -1,5 +1,5 @@
---- cgi-bin/squidguardmgr.cgi.orig	2015-04-11 12:27:37.478461786 +0200
-+++ cgi-bin/squidguardmgr.cgi	2015-04-10 22:45:29.000000000 +0200
+--- cgi-bin/squidguardmgr.cgi.orig	2016-09-21 12:49:43.755729600 +0200
++++ cgi-bin/squidguardmgr.cgi		2016-09-21 12:50:04.315729600 +0200
 @@ -14,6 +14,62 @@
  
  use strict qw{vars subs};
@@ -91,4 +91,84 @@
  
  # Configuration file
  my $SGM_CONF    = 'squidguardmgr.conf';
- 
+@@ -915,6 +970,9 @@
+ 	if (open(OUT, ">>$file")) {
+ 		print OUT join("\n", @add), "\n";
+ 		close OUT;
++		my $uid = getpwnam('nobody');
++		my $gid = getgrnam('nobody');
++		chown($uid, $gid, "$file");
+ 		if ($KEEP_DIFF) {
+ 			# Store these items into a squidGuard diff history file
+ 			&add_hist_item("$file.diff.hist", '+', @add);
+@@ -923,13 +981,22 @@
+ 		&error("Can't open $file for writing: $!");
+ 	}
+ 	if (-e "$file.db") {
++		my $uid = getpwnam('nobody');
++		my $gid = getgrnam('nobody');
++		chown($uid, $gid, "$file.db");
+ 		# Now load these items dynamically into squidGuard
+ 		if (open(OUT, ">$file.tmpdiff")) {
+ 			map { s/^/\+/; } @add;
+ 			print OUT join("\n", @add), "\n";
+ 			close OUT;
++			my $uid = getpwnam('nobody');
++			my $gid = getgrnam('nobody');
++			chown($uid, $gid, "$file.tmpdiff");
+ 			print `$SQUIDGUARD -u $file.tmpdiff`;
+ 			unlink("$file.tmpdiff");
++			my $uid = getpwnam('nobody');
++			my $gid = getgrnam('nobody');
++			chown($uid, $gid, "$file.tmpdiff");
+ 		} else {
+ 			&error("Can't open $file.tmpdiff for writing: $!<br>");
+ 		}
+@@ -973,6 +1040,9 @@
+ 			if (open(OUT, ">$file")) {
+ 				print OUT "$txt";
+ 				close OUT;
++				my $uid = getpwnam('nobody');
++				my $gid = getgrnam('nobody');
++				chown($uid, $gid, "$file");
+ 				# Store these items into a squidGuard diff history file
+ 				if ($KEEP_DIFF) {
+ 					&add_hist_item("$file.diff.hist", '-', @removed);
+@@ -988,11 +1058,17 @@
+ 			unlink($file);
+ 		}
+ 		if (-e "$file.db") {
++			my $uid = getpwnam('nobody');
++			my $gid = getgrnam('nobody');
++			chown($uid, $gid, "$file.db");
+ 			# Now load these items dynamically into squidGuard
+ 			if (open(OUT, ">$file.tmpdiff")) {
+ 				map { s/^/\-/; } @removed;
+ 				print OUT join("\n", @removed), "\n";
+ 				close OUT;
++				my $uid = getpwnam('nobody');
++				my $gid = getgrnam('nobody');
++				chown($uid, $gid, "$file.tmpdiff");
+ 				print `$SQUIDGUARD -u $file.tmpdiff`;
+ 				unlink("$file.tmpdiff");
+ 			} else {
+@@ -1042,6 +1118,9 @@
+ 		map { s/^/$prefix/ } @add;
+ 		print OUT join("\n", @add), "\n";
+ 		close OUT;
++		my $uid = getpwnam('nobody');
++		my $gid = getgrnam('nobody');
++		chown($uid, $gid, "$file");
+ 	} else {
+ 		&error("Can't open $file for writing: $!");
+ 	}
+@@ -1663,6 +1742,9 @@
+ 		$BL =~ s/[^a-z0-9\_\-]+//ig;
+ 		$BL = lc($BL);
+ 		mkdir("$CONFIG->{dbhome}/$BL");
++		my $uid = getpwnam('nobody');
++		my $gid = getgrnam('nobody');
++		chown($uid, $gid, "$CONFIG->{dbhome}/$BL");
+ 		$ACTION = 'bledit';
+ 		$BL =~ s/\/.*//;
+ 	}
