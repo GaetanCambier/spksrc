@@ -9,7 +9,7 @@ PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 DEPENDS =
 
 HOMEPAGE = https://github.com/libfuse/libfuse
-COMMENT  = File System in User Space
+COMMENT  = The reference implementation of the Linux FUSE (Filesystem in Userspace) interface
 LICENSE  = GNU GPLv2
 
 GNU_CONFIGURE = 1

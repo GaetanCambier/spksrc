@@ -14,7 +14,7 @@ LICENSE  = GPLv2
 
 GNU_CONFIGURE = 1
 PRE_PATCH_TARGET = myPrePatch
-CONFIGURE_ARGS = --disable-instrumentation
+CONFIGURE_ARGS = --disable-instrumentation --with-zlib=$(STAGING_INSTALL_PREFIX)
 
 include ../../mk/spksrc.cross-cc.mk
 

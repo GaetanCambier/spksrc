@@ -12,7 +12,6 @@ COMMENT    = Python Programming Language
 LICENSE    = PSF
 
 GNU_CONFIGURE = 1
-ADDITIONAL_CFLAGS = -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
 CONFIGURE_ARGS = --enable-unicode=ucs4 --enable-ipv6
 
 POST_INSTALL_TARGET = myPostInstall
@@ -27,4 +26,4 @@ myPostInstall:
 	@$(MSG) Installing setuptools, pip and cffi
 	@$(RUN) wget https://bootstrap.pypa.io/ez_setup.py -O - | $(PYTHON)
 	@$(RUN) wget https://bootstrap.pypa.io/get-pip.py -O - | $(PYTHON)
-	@$(PIP) install "cffi==1.3.1"
+	@$(PIP) install "cffi==1.5.2"

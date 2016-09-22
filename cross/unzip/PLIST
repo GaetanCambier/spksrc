@@ -1,3 +1,5 @@
-bin/funzip
-bin/unzip
-bin/unzipsfx
+bin:bin/funzip
+bin:bin/unzip
+bin:bin/unzipsfx
+bin:bin/zipgrep
+bin:bin/zipinfo
