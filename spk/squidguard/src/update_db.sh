@@ -6,6 +6,8 @@ DB_DIR="${INSTALL_DIR}/var/db"
 SQUID_CONF_DIR="${INSTALL_DIR}/etc"
 FILTER_ADBLOCK_DIR="${DB_DIR}/adblock"
 RSYNC_DIR="rsync://ftp.ut-capitole.fr/blacklist/dest/"
+adservers_yoyo_url="http://pgl.yoyo.org/adservers/serverlist.php?hostformat=nohtml"
+adservers_yoyo_path="${DB_DIR}/ads_pgl_yoyo"
 
 strip_file_header() { 
 	grep -v '^$\|^#' "$1" | sed 's/$/ /' | tr -d '\n'
@@ -32,8 +34,14 @@ done
 rm -rf ${EASYLIST_TMP_DIR} > /dev/null 2>&1
 
 rsync -a ${RSYNC_DIR} ${DB_DIR}
+
+mkdir -p "${adservers_yoyo_path}"
+echo \ > "${FILTER_ADBLOCK_DIR}/domains"
+wget --timeout=15 -q "${adservers_yoyo_url}" -O ${adservers_yoyo_path}/domains
+
 if [ $? -eq 0 ]
 then
     ${INSTALL_DIR}/bin/squidGuard -P -c ${INSTALL_DIR}/etc/squidguard.conf -C all
 fi
+
 chown -R nobody:nobody ${DB_DIR}
