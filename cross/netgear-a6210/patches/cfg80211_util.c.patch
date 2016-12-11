@@ -1,0 +1,11 @@
+--- os/linux/cfg80211/cfg80211_util.c.orig	2016-12-11 16:44:53.258970500 +0100
++++ os/linux/cfg80211/cfg80211_util.c	2016-12-11 16:45:15.774970500 +0100
+@@ -941,7 +941,7 @@
+ #if (LINUX_VERSION_CODE >= KERNEL_VERSION(3,18,0))
+ 	return cfg80211_rx_mgmt(pWdev, freq, 0,	frame, len, 0);
+ #else
+-	return cfg80211_rx_mgmt(pWdev, freq, 0, frame, len, 0, GFP_ATOMIC);
++	return cfg80211_rx_mgmt(pWdev, freq, 0, frame, len, 0);
+ #endif
+ #else
+ #if (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,37))

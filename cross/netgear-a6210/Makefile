@@ -14,9 +14,15 @@ LICENSE  =
 REQ_KERNEL = 1
 CONFIGURE_TARGET = nop
 COMPILE_TARGET = myCompile
+INSTALL_TARGET = myInstall
 
 include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: myCompile
 myCompile:
 	@$(RUN) $(MAKE) LINUX_SRC=$(KERNEL_DIR) LINUX_SRC_MODULE=$(KERNEL_DIR)/net/wireless
+
+.PHONY: myInstall
+myInstall:
+	@$(RUN) $(MAKE) LINUX_SRC_MODULE=$(STAGING_INSTALL_PREFIX) install
+
