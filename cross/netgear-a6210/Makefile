@@ -20,9 +20,9 @@ include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: myCompile
 myCompile:
-	@$(RUN) $(MAKE) LINUX_SRC=$(KERNEL_DIR) LINUX_SRC_MODULE=$(KERNEL_DIR)/net/wireless
+	@$(RUN) $(MAKE) LINUX_SRC=$(KERNEL_DIR) LINUX_SRC_MODULE=$(KERNEL_DIR)/net/wireless release
 
 .PHONY: myInstall
 myInstall:
-	@$(RUN) $(MAKE) LINUX_SRC_MODULE=$(STAGING_INSTALL_PREFIX) install
+	@$(RUN) $(MAKE) LINUX_SRC_MODULE=$(STAGING_INSTALL_PREFIX) DAT_PATH=$(STAGING_INSTALL_PREFIX)/etc/Wireless/RT$(CHIPSET_DAT)STA install
 

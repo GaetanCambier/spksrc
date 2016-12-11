@@ -1,20 +1,15 @@
---- os/linux/Makefile.6.orig	2016-12-11 17:07:40.082970500 +0100
-+++ os/linux/Makefile.6	2016-12-11 17:13:16.142970500 +0100
-@@ -212,7 +212,7 @@
- endif
+--- os/linux/Makefile.6.orig	2016-12-11 17:47:03.866970500 +0100
++++ os/linux/Makefile.6	2016-12-11 17:47:21.014970500 +0100
+@@ -723,12 +723,10 @@
+ 	cp $(RT28xx_DIR)/$(DAT_FILE_NAME) $(DAT_PATH)/.
+ 	install -d $(LINUX_SRC_MODULE)
+ 	install -m 644 -c $(addsuffix .ko,$(MOD_NAME)) $(LINUX_SRC_MODULE)
+-	/sbin/depmod -a ${shell uname -r}
  
- MOD_NAME = $(MODULE)_ap
--DAT_PATH = /etc/Wireless/RT$(CHIPSET_DAT)AP
-+DAT_PATH = $(STAGING_INSTALL_PREFIX)/etc/Wireless/RT$(CHIPSET_DAT)AP
- DAT_FILE_NAME = conf/RT$(CHIPSET_DAT)AP.dat
- endif
- #endif // CONFIG_AP_SUPPORT //
-@@ -261,7 +261,7 @@
- endif
+ uninstall:
+ #	rm -rf $(DAT_PATH)
+ 	rm -rf $(addprefix $(LINUX_SRC_MODULE),$(addsuffix .ko,$(MOD_NAME)))
+-	/sbin/depmod -a ${shell uname -r}
  
- MOD_NAME = $(MODULE)_sta
--DAT_PATH = /etc/Wireless/RT$(CHIPSET_DAT)STA
-+DAT_PATH = $(STAGING_INSTALL_PREFIX)/etc/Wireless/RT$(CHIPSET_DAT)STA
- DAT_FILE_NAME = conf/RT$(CHIPSET_DAT)STA.dat
- endif
- #endif // CONFIG_STA_SUPPORT //
+ # Declare the contents of the .PHONY variable as phony.  We keep that
+ # information in a variable so we can use it in if_changed and friends.
