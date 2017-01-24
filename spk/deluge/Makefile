@@ -7,7 +7,7 @@ BETA = 1
 
 BUILD_DEPENDS = cross/python cross/setuptools cross/pip cross/wheel
 DEPENDS  = cross/libtorrent cross/$(SPK_NAME)
-WHEELS = characteristic chardet pyasn1-modules python_libtorrent pyxdg Mako service-identity
+WHEELS = characteristic chardet pyasn1-modules pyxdg Mako service-identity
 SPK_DEPENDS = "python>=2.7.6-8"
 
 REQUIRED_DSM = 5.0
@@ -40,12 +40,5 @@ include ../../mk/spksrc.spk.mk
 deluge_extra_install:
 	install -m 755 -d $(STAGING_DIR)/var
 	install -m 644 src/core.conf $(STAGING_DIR)/var/core.conf
-	install -m 755 -d ${STAGING_DIR}/share/wheelhouse
-	install -m 644 ${WORK_DIR}/wheelhouse/* ${STAGING_DIR}/share/wheelhouse/
 	install -m 755 -d $(STAGING_DIR)/app
 	install -m 644 src/app/config $(STAGING_DIR)/app/config
-	install -m 755 -d $(STAGING_DIR)/app/images
-	for size in 16 24 32 48 72; do \
-		convert $(SPK_ICON) -thumbnail $${size}x$${size} \
-		        $(STAGING_DIR)/app/images/$(SPK_NAME)-$${size}.png ; \
-	done
