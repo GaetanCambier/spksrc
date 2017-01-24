@@ -1,6 +1,6 @@
 {
     ".url": {
-        "com.synocommunity.packages.squidguard": {
+        "org.cambier.synology.packages.squidguard": {
             "title": "SquidGuard Manager",
             "desc": "SquidGuard Manager",
             "icon": "images/icon{0}.png",

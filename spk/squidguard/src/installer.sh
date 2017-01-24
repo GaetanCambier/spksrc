@@ -3,6 +3,8 @@
 # Package
 PACKAGE="squidguard"
 DNAME="SquidGuard"
+SHORTNAME="squidguard"
+PACKAGE_NAME="org.cambier.synology.packages.${SHORTNAME}"
 
 # Others
 INSTALL_DIR="/usr/local/${PACKAGE}"

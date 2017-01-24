@@ -1,9 +1,9 @@
 SPK_NAME = squidguard
 SPK_VERS = $(shell date +%Y.%m.%d)
-SPK_REV = 18
+SPK_REV = 20
 SPK_ICON = src/squidguard.png
 DSM_UI_DIR = ui
-DEPENDS = cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
+DEPENDS = cross/cgi cross/busybox cross/squidclamav cross/squidguard cross/squid cross/squidguardmanager
 
 SPK_DEPENDS = "AntiVirus>1.2:Perl"
 INSTALL_DEP_SERVICES = "apache-web"
@@ -15,7 +15,7 @@ DESCRIPTION_FRE = SquidGuard est un proxy HTTP, basé sur squid, qui permet de f
 RELOAD_UI = no
 DISPLAY_NAME = SquidGuard
 CHANGELOG="\
-1. Update to Openssl 1.0.2j<br>\
+1. Fix Perl Compatibility Problem<br>\
 2. Fix Minors Bugs<br>\
 <br>\
 <b>Composants :</b><br>\
