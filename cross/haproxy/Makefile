@@ -1,8 +1,8 @@
 PKG_NAME = haproxy
-PKG_VERS = 1.6.3
+PKG_VERS = 1.7.1
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = http://www.haproxy.org/download/1.6/src
+PKG_DIST_SITE = http://www.haproxy.org/download/1.7/src
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 
