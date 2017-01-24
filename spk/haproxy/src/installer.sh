@@ -41,6 +41,7 @@ postinst ()
 
     # Install the wheels/requirements
     ${INSTALL_DIR}/env/bin/pip install --use-wheel --no-deps --no-index -U --force-reinstall -f ${INSTALL_DIR}/share/wheelhouse -r ${INSTALL_DIR}/share/wheelhouse/requirements.txt > /dev/null 2>&1
+    ${INSTALL_DIR}/env/bin/pip install --use-wheel --no-deps --no-index -U --force-reinstall -f ${INSTALL_DIR}/share/wheelhouse -r click> /dev/null 2>&1
 
     # Setup the database
     ${INSTALL_DIR}/env/bin/python ${INSTALL_DIR}/app/setup.py
@@ -103,8 +104,8 @@ preupgrade ()
     fi
     # Revision for haproxy 1.6
     if [ `echo ${SYNOPKG_OLD_PKGVER} | sed -r "s/^.*-([0-9]+)$/\1/"` -le 22 ]; then
-	sed -ie "s/listen stats :8280/listen stats\n\tbind :8280/" ${CFG_FILE}
-	sed -ie "s/listen stats :8280/listen stats\n\tbind :8280/" ${TPL_FILE}
+	sed -ie "s/listen stats :18280/listen stats\n\tbind :8280/" ${CFG_FILE}
+	sed -ie "s/listen stats :18280/listen stats\n\tbind :8280/" ${TPL_FILE}
     fi
 
     # Save some stuff

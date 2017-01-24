@@ -1,5 +1,5 @@
 SPK_NAME = haproxy
-SPK_VERS = 2.6.3
+SPK_VERS = $(shell date +%Y.%m.%d)
 SPK_REV = 25
 SPK_ICON = src/haproxy.png
 DSM_UI_DIR = app
@@ -11,13 +11,16 @@ SPK_DEPENDS = "python>2.7.3-3"
 MAINTAINER = Cambier Gaetan
 DESCRIPTION = HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.
 DESCRIPTION_FRE = HAProxy est un produit libre, performant et fiable qui permet la haute disponibilité, la répartition de charge et le proxy de services TCP ou HTTP.
-ADMIN_PORT = 8280
+ADMIN_PORT = 18280
 RELOAD_UI = yes
 DISPLAY_NAME = HAProxy
 CHANGELOG = "\
-1. Update to Openssl 1.0.2g<br>\
+1. Update to Haproxy 1.7.1<br>\
+1. Update to Openssl 1.0.2j<br>\
 2. Update Implementation of draft and RFC versions of CHACHA20-POLY1305<br>\
 3. Fixe multiples minors bugs<br>\
+<b>Know Bug :</b><br>\
+   Graphical User Interface Not working<br>\
 "
 
 HOMEPAGE   = http://haproxy.1wt.eu/

@@ -2,5 +2,5 @@
 title="HAProxy"
 desc="HAProxy"
 port_forward="yes"
-dst.ports="8280/tcp"
+dst.ports="18280/tcp"
 

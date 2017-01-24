@@ -87,7 +87,7 @@ def default_config():
     session.add(Backend(id=15, name=u'surveillance', servers=u'surveillance localhost:9900 check'))
     session.add(Backend(id=16, name=u'video', servers=u'video localhost:9007 check'))
     session.add(Backend(id=17, name=u'file', servers=u'file localhost:7000 check'))
-    session.add(Backend(id=18, name=u'haproxy', servers=u'haproxy localhost:8280 check'))
+    session.add(Backend(id=18, name=u'haproxy', servers=u'haproxy localhost:18280 check'))
     session.add(Backend(id=19, name=u'deluge', servers=u'deluge localhost:8112 check'))
     session.add(Frontend(id=1, name=u'http', binds=u':5080', default_backend_id=1, options=ur'option http-server-close,option forwardfor'))
     session.add(Frontend(id=2, name=u'https', binds=u':5443 ssl crt /usr/local/haproxy/var/crt/default.pem ciphers EECDH+CHACHA20:EECDH+AES128:EECDH+AES256:EECDH+3DES:RSA+3DES:!MD5 no-sslv3', options=ur'option http-server-close,option forwardfor,rspirep ^Location:\ http://(.*)$    Location:\ https://\1, rspadd Strict-Transport-Security:\ max-age=31536000;\ includeSubDomains', default_backend_id=1))
