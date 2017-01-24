@@ -1,0 +1,11 @@
+rsc:share/perl_modules/CGI/Carp.pm
+rsc:share/perl_modules/CGI/Cookie.pm
+rsc:share/perl_modules/CGI/File/Temp.pm
+rsc:share/perl_modules/CGI/HTML/Functions.pm
+rsc:share/perl_modules/CGI/HTML/Functions.pod
+rsc:share/perl_modules/CGI.pm
+rsc:share/perl_modules/CGI.pod
+rsc:share/perl_modules/CGI/Pretty.pm
+rsc:share/perl_modules/CGI/Push.pm
+rsc:share/perl_modules/CGI/Util.pm
+rsc:share/perl_modules/Fh.pm

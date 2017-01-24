@@ -1,0 +1,8 @@
+--- cgi-bin/squidguardmgr.cgi.orig	2017-01-06 19:49:10.944595600 +0100
++++ cgi-bin/squidguardmgr.cgi	2017-01-06 19:49:40.900595600 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/perl -I /usr/local/squidguard/share/perl_modules
+ #-----------------------------------------------------------------------------
+ #
+ # SquidGuard Manager

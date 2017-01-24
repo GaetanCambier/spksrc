@@ -1,0 +1,8 @@
+--- cgi-bin/clwarn.cgi.orig	2017-01-06 20:15:59.196595600 +0100
++++ cgi-bin/clwarn.cgi	2017-01-06 20:16:53.760595600 +0100
+@@ -1,4 +1,4 @@
+-#!/usr/bin/perl
++#!/usr/bin/perl -I /usr/local/squidguard/share/perl_modules
+ use strict;
+ 
+ use CGI;
