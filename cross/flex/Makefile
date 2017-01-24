@@ -1,9 +1,9 @@
 PKG_NAME = flex
-PKG_VERS = 2.6.0
+PKG_VERS = 2.6.3
 PKG_EXT = tar.gz
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 PKG_DIST_NAME = $(PKG_DIR).$(PKG_EXT)
-PKG_DIST_SITE = http://downloads.sourceforge.net/project/$(PKG_NAME)
+PKG_DIST_SITE = https://github.com/westes/flex/releases/download/v$(PKG_VERS)
 
 DEPENDS =
 
@@ -13,7 +13,7 @@ LICENSE  =
 
 GNU_CONFIGURE = 1
 
-CONFIGURE_ARGS = ac_cv_func_malloc_0_nonnull=yes ac_cv_func_realloc_0_nonnull=yes
+CONFIGURE_ARGS = --disable-bootstrap
 
 include ../../mk/spksrc.cross-cc.mk
 
